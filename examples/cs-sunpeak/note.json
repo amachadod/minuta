@@ -1,0 +1,10 @@
+{
+  "id": "example-cs-sunpeak",
+  "title": "Ledgerly / Sunpeak Dental",
+  "date": "2026-10-27",
+  "folder": "",
+  "creator": { "name": "Ravi Menon", "email": "ravi@ledgerly.example" },
+  "attendees": "Ravi Menon <ravi@ledgerly.example>, Kate Whitfield <kate@sunpeakdental.example>",
+  "link": "https://notes.granola.ai/example/cs-sunpeak",
+  "transcript": "Ravi: Hi Kate, thanks for jumping on. You mentioned some frustration in your email?\nKate: Yes. Three times this month patients got duplicate invoices. Our front desk spends ages apologising. It happens when we edit an appointment after it's billed.\nRavi: That's not acceptable, I'm sorry. Can you send me two or three invoice numbers where it happened?\nKate: I'll email them after this.\nRavi: Thanks. I'll get engineering on it and update you by Thursday.\nKate: The other thing. Our contract renews in January and, honestly, the owners are looking at Dentally. It's cheaper and they say it handles health fund claims natively.\nRavi: Understood. How are the two new clinics finding it?\nKate: They barely use it. The staff there never got proper training.\nRavi: That's on us. Let me run a training session for both new clinics. Could we do next week?\nKate: Wednesday afternoon works.\nRavi: Great. On health fund claims, that's on our roadmap. I'll check with product on timing and come back to you.\nKate: That would help. If it's coming in the next six months, that matters for the renewal.\nRavi: And before January, can we set up a renewal review with the owners? I'd like to show them usage and what's coming.\nKate: Sure, early December probably."
+}

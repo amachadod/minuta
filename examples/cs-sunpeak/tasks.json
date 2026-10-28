@@ -1,0 +1,64 @@
+{
+  "route": {
+    "playbook_id": "customer-success",
+    "reason": "Existing customer reporting a billing bug, low usage at two clinics and a renewal at risk to a competitor. The note had no Granola folder, so Claude picked the team."
+  },
+  "summary": "Check-in with Kate Whitfield at Sunpeak Dental. Patients received duplicate invoices three times this month when appointments were edited after billing. The January renewal is at risk: the owners are looking at Dentally, which is cheaper and handles health fund claims natively. Usage at the two new clinics is low because staff were never trained.",
+  "tasks": [
+    {
+      "title": "Fix duplicate invoices for Sunpeak Dental",
+      "description": "Duplicate invoices are created when an appointment is edited after it has been billed. Happened three times this month. Kate will email two or three invoice numbers. Update Kate by Thursday.",
+      "type": "issue",
+      "owner_name": "Ravi Menon",
+      "owner_email": "ravi@ledgerly.example",
+      "due_date": "2026-10-29",
+      "priority": "high",
+      "evidence": "Three times this month patients got duplicate invoices... It happens when we edit an appointment after it's billed. / I'll get engineering on it and update you by Thursday.",
+      "confidence": 0.96
+    },
+    {
+      "title": "Run training session for Sunpeak Dental's two new clinics",
+      "description": "Staff at both new clinics were never properly trained and barely use the product. Session agreed for Wednesday afternoon.",
+      "type": "onboarding",
+      "owner_name": "Ravi Menon",
+      "owner_email": "ravi@ledgerly.example",
+      "due_date": "2026-11-04",
+      "priority": "high",
+      "evidence": "Let me run a training session for both new clinics. Could we do next week? / Wednesday afternoon works.",
+      "confidence": 0.93
+    },
+    {
+      "title": "Churn risk: Sunpeak Dental evaluating Dentally before January renewal",
+      "description": "Owners are comparing Dentally: cheaper, native health fund claims. Low usage at new clinics adds risk. Plan a save strategy.",
+      "type": "churn_risk",
+      "owner_name": "Ravi Menon",
+      "owner_email": "ravi@ledgerly.example",
+      "due_date": null,
+      "priority": "urgent",
+      "evidence": "Our contract renews in January and, honestly, the owners are looking at Dentally.",
+      "confidence": 0.95
+    },
+    {
+      "title": "Feature request: native health fund claims (Sunpeak Dental)",
+      "description": "Check roadmap timing with product and reply to Kate. Delivery within six months would affect the renewal decision.",
+      "type": "feature_request",
+      "owner_name": "Ravi Menon",
+      "owner_email": "ravi@ledgerly.example",
+      "due_date": null,
+      "priority": "high",
+      "evidence": "If it's coming in the next six months, that matters for the renewal.",
+      "confidence": 0.9
+    },
+    {
+      "title": "Book renewal review with Sunpeak Dental owners for early December",
+      "description": "Show usage and the roadmap before the January renewal.",
+      "type": "renewal",
+      "owner_name": "Ravi Menon",
+      "owner_email": "ravi@ledgerly.example",
+      "due_date": "2026-11-13",
+      "priority": "medium",
+      "evidence": "Can we set up a renewal review with the owners? / Sure, early December probably.",
+      "confidence": 0.78
+    }
+  ]
+}
