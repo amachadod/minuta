@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minuta</title>
+<meta name="description" content="Minuta turns every call into tasks for the right team. Granola records the call, Claude extracts the work using a team playbook, and the tasks land in Linear.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the call on the left reads like minutes on paper; the issues on the right read like a tracker. A red record dot is the single accent. */
+:root{
+  --bg:#f4f5f7; --surface:#ffffff; --ink:#16181d; --muted:#5d6370; --line:#dfe2e8; --soft:#eceef2;
+  --rec:#d23a26; --rec-soft:#fbe9e6; --mark:#fff1c2; --mark-ink:#5a4300;
+  --urgent:#c2341f; --high:#b8650a; --medium:#3d63c9; --low:#6b7280;
+  --t-sales:#2f6fdb; --t-am:#8a4fd8; --t-mkt:#d2522a; --t-cs:#13866f; --t-ops:#5b6472;
+  --f-display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-read:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111318; --surface:#181b22; --ink:#e8eaef; --muted:#9aa1ae; --line:#2a2e38; --soft:#20242c;
+  --rec:#ff6a52; --rec-soft:#3a1d19; --mark:#4a3d12; --mark-ink:#ffe6a0;
+  --urgent:#ff7a63; --high:#f0a64a; --medium:#86a6ff; --low:#a3a9b4;
+  --t-sales:#7aa7ff; --t-am:#bb93ff; --t-mkt:#ff9470; --t-cs:#4fd1b0; --t-ops:#a7afbd; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111318; --surface:#181b22; --ink:#e8eaef; --muted:#9aa1ae; --line:#2a2e38; --soft:#20242c;
+  --rec:#ff6a52; --rec-soft:#3a1d19; --mark:#4a3d12; --mark-ink:#ffe6a0;
+  --urgent:#ff7a63; --high:#f0a64a; --medium:#86a6ff; --low:#a3a9b4;
+  --t-sales:#7aa7ff; --t-am:#bb93ff; --t-mkt:#ff9470; --t-cs:#4fd1b0; --t-ops:#a7afbd; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-display);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto}
+:focus-visible{outline:2px solid var(--rec);outline-offset:2px}
+
+/* Header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.rec{width:12px;height:12px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px var(--rec-soft);flex:none}
+@media (prefers-reduced-motion:no-preference){.rec{animation:pulse 2.4s ease-in-out infinite}}
+@keyframes pulse{50%{box-shadow:0 0 0 7px var(--rec-soft)}}
+.toplinks{display:flex;gap:18px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.toplinks a{text-decoration:none}.toplinks a:hover{color:var(--ink)}
+
+.hero{padding-block:36px 28px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end;border-bottom:1px solid var(--line)}
+@media (max-width:860px){.hero{grid-template-columns:minmax(0,1fr);gap:20px}}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);line-height:1.02;letter-spacing:-.035em;margin:0;font-weight:800;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--rec)}
+.hero p{margin:0;color:var(--muted);font-size:16.5px;max-width:52ch;text-wrap:pretty}
+.hero .byline{font-family:var(--f-mono);font-size:12px;margin-top:14px;color:var(--muted)}
+
+/* Pipeline */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-block:28px 40px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+@media (max-width:760px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.step{padding:18px 18px 20px;border-right:1px solid var(--line);position:relative;min-width:0}
+.step:last-child{border-right:0}
+@media (max-width:760px){.step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.step .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.step h3{margin:6px 0 4px;font-size:16px;letter-spacing:-.01em}
+.step p{margin:0;font-size:13.5px;color:var(--muted)}
+.step .tool{display:inline-block;margin-top:10px;font-family:var(--f-mono);font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--soft)}
+.step:first-child .tool{background:var(--rec-soft);color:var(--rec)}
+
+/* Section heads */
+.sec{margin-top:8px}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.sec-h h2{margin:0;font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.025em;text-wrap:balance}
+.sec-h p{margin:0;color:var(--muted);font-size:14px;max-width:60ch}
+
+/* Example picker */
+.picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.picker button{font:500 14px var(--f-display);display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.picker button .k{font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--tc)}
+.picker button[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:20px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;min-width:0}
+.panel-h{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.panel-h .lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Call side */
+.call-meta{padding:16px 18px 6px}
+.call-meta h3{margin:0 0 6px;font-size:19px;letter-spacing:-.015em;text-wrap:balance}
+.meta-row{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.meta-row b{color:var(--ink);font-weight:500}
+.route{margin:12px 18px 0;padding:10px 12px;border-radius:8px;background:var(--soft);font-size:13px;display:flex;gap:10px;align-items:flex-start}
+.route .chip{flex:none}
+.transcript{padding:12px 18px 18px;font-family:var(--f-read);font-size:16px;line-height:1.6;max-height:560px;overflow:auto}
+.line{padding:3px 8px;margin:0 -8px;border-radius:4px;transition:background .2s}
+.line .who{font-family:var(--f-display);font-weight:700;font-size:13px;letter-spacing:.01em;margin-right:6px}
+.line.hit{background:var(--mark);color:var(--mark-ink)}
+.line.hit .who{color:var(--mark-ink)}
+
+/* Output side */
+.summary{padding:16px 18px;border-bottom:1px solid var(--line);font-size:14.5px}
+.summary .lab{display:block;margin-bottom:4px}
+.issues{list-style:none;margin:0;padding:8px}
+.issue{display:grid;grid-template-columns:22px minmax(0,1fr);gap:4px 10px;padding:12px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.issue:hover{background:var(--soft)}
+.issue[aria-pressed="true"]{border-color:var(--line);background:var(--soft)}
+.issue + .issue{margin-top:2px}
+.pri{width:22px;height:22px;display:grid;place-items:center;margin-top:1px}
+.pri svg{display:block}
+.issue .t{font-weight:600;font-size:15px;line-height:1.35;text-wrap:pretty}
+.issue .row{grid-column:2;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:12.5px;color:var(--muted)}
+.idk{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--ink);background:var(--surface);white-space:nowrap}
+.pill.flag{border-color:var(--high);color:var(--high)}
+.av{width:16px;height:16px;border-radius:50%;display:inline-grid;place-items:center;font-size:9px;font-weight:700;color:#fff;background:var(--tc)}
+.av.none{background:transparent;border:1px dashed var(--muted)}
+.detail{grid-column:2;margin-top:6px;font-size:13.5px;display:none}
+.issue[aria-pressed="true"] .detail{display:block}
+.detail p{margin:0 0 8px;color:var(--ink)}
+.detail blockquote{margin:0;padding:8px 12px;border-left:3px solid var(--rec);background:var(--surface);font-family:var(--f-read);font-size:15px;color:var(--ink);border-radius:0 6px 6px 0}
+.detail .conf{margin-top:8px;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.bar{width:80px;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink)}
+.hint{padding:0 18px 14px;font-size:12.5px;color:var(--muted)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11.5px;padding:2px 8px;border-radius:5px;color:var(--tc);border:1px solid color-mix(in srgb,var(--tc) 40%,transparent);background:color-mix(in srgb,var(--tc) 10%,transparent);white-space:nowrap}
+
+/* Playbooks */
+.pb{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:760px){.pb{grid-template-columns:minmax(0,1fr)}}
+.pb-list{display:flex;flex-direction:column;gap:4px}
+.pb-list button{font:500 14.5px var(--f-display);text-align:left;padding:10px 12px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pb-list button:hover{background:var(--surface)}
+.pb-list button[aria-selected="true"]{background:var(--surface);border-color:var(--line)}
+.pb-list .add{margin-top:8px;padding:10px 12px;border:1px dashed var(--line);border-radius:8px;font-size:13px;color:var(--muted)}
+.pb-body{padding:18px 22px 22px}
+.pb-body .file{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:10px}
+.pb-body .fm{font-family:var(--f-mono);font-size:12.5px;background:var(--soft);border-radius:6px;padding:10px 12px;margin-bottom:14px;overflow-x:auto;white-space:pre}
+.pb-body h4{margin:16px 0 6px;font-size:15px}
+.pb-body ul{margin:0;padding-left:18px}
+.pb-body li{margin:3px 0;font-size:14.5px;max-width:70ch}
+.pb-body p{margin:6px 0;font-size:14.5px;max-width:70ch}
+.pb-body code{font-family:var(--f-mono);font-size:12.5px;background:var(--soft);padding:1px 5px;border-radius:4px}
+
+/* Setup + design notes */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.cols{grid-template-columns:minmax(0,1fr)}}
+.note{padding:18px 20px}
+.note h3{margin:0 0 6px;font-size:16px}
+.note p,.note li{font-size:14px;color:var(--muted);margin:0}
+.note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.setup{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+@media (max-width:860px){.setup{grid-template-columns:minmax(0,1fr)}}
+.setup li{padding:16px 18px;border-right:1px solid var(--line);font-size:14px;min-width:0}
+.setup li:last-child{border-right:0}
+@media (max-width:860px){.setup li{border-right:0;border-bottom:1px solid var(--line)}.setup li:last-child{border-bottom:0}}
+.setup li::before{counter-increment:s;content:counter(s);font-family:var(--f-mono);font-size:11px;color:var(--muted);display:block;margin-bottom:6px}
+.setup b{display:block;margin-bottom:2px}
+.setup span{color:var(--muted)}
+.setup code{font-family:var(--f-mono);font-size:12px;background:var(--soft);padding:1px 5px;border-radius:4px;word-break:break-all}
+
+.spacer{height:56px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><span class="rec" aria-hidden="true"></span>Minuta</a>
+    <nav class="toplinks" aria-label="Page">
+      <a href="#examples">Examples</a>
+      <a href="#playbooks">Playbooks</a>
+      <a href="#setup">Set up</a>
+      <a href="https://github.com/amachadod/minuta" id="repo-link">GitHub</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Every call ends with <em>next steps</em>. Minuta makes sure they happen.</h1>
+    <div>
+      <p>Minuta takes a recorded call from Granola, has Claude pull out what was agreed using your team's playbook, and creates the tasks in that team's Linear. Built for sales, account management, marketing, customer success and internal teams.</p>
+      <div class="byline">Portfolio project by Alberto Machado Domínguez · Example calls are fictional</div>
+    </div>
+  </section>
+
+  <div class="flow" role="list" aria-label="How Minuta works">
+    <div class="step" role="listitem"><span class="n">01 · RECORD</span><h3>The call is recorded</h3><p>Granola takes notes and a transcript. You save the note to a team folder.</p><span class="tool">Granola + Zapier</span></div>
+    <div class="step" role="listitem"><span class="n">02 · ROUTE</span><h3>Minuta picks the team</h3><p>The folder decides the team. No folder? Claude reads the call and chooses.</p><span class="tool">Minuta</span></div>
+    <div class="step" role="listitem"><span class="n">03 · EXTRACT</span><h3>Claude finds the work</h3><p>Using that team's playbook: owners, deadlines, priority and the quote that proves it.</p><span class="tool">Claude API</span></div>
+    <div class="step" role="listitem"><span class="n">04 · ASSIGN</span><h3>Tasks land in Linear</h3><p>One issue per task, in the right team. Unsure tasks are flagged for review.</p><span class="tool">Linear API</span></div>
+  </div>
+
+  <section class="sec" id="examples">
+    <div class="sec-h">
+      <h2>Five calls, five teams</h2>
+      <p>Pick a call. Select a task to see the line in the transcript it came from.</p>
+    </div>
+    <div class="picker" role="tablist" aria-label="Example calls" id="picker"></div>
+    <div class="stage">
+      <div class="panel">
+        <div class="panel-h"><span class="lab">The call · from Granola</span><span id="call-chip"></span></div>
+        <div class="call-meta" id="call-meta"></div>
+        <div class="route" id="route"></div>
+        <div class="transcript" id="transcript" tabindex="0" aria-label="Transcript"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><span class="lab">What Minuta creates in Linear</span><span class="idk" id="count"></span></div>
+        <div class="summary"><span class="lab">Summary</span><span id="summary"></span></div>
+        <ul class="issues" id="issues"></ul>
+        <div class="hint">Example output. Owners are only assigned if they were on the call. Tasks under 60% confidence are flagged and left unassigned.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section class="sec" id="playbooks">
+    <div class="sec-h">
+      <h2>One playbook per team, written in plain English</h2>
+      <p>A playbook tells Claude what counts as a task for that team. To add a team, copy a file and edit the text. No code.</p>
+    </div>
+    <div class="pb">
+      <div class="pb-list" role="tablist" aria-label="Playbooks" id="pb-list"></div>
+      <div class="panel pb-body" id="pb-body"></div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section class="sec" id="setup">
+    <div class="sec-h">
+      <h2>Run it on your own calls</h2>
+      <p>Needs a paid Granola plan (desktop app), a Claude API key and a Linear workspace. Full guide in the README.</p>
+    </div>
+    <ol class="setup">
+      <li><b>Deploy the webhook</b><span>Deploy to Vercel (the <code>api/</code> folder is ready), or run <code>npm start</code>. No dependencies.</span></li>
+      <li><b>Add your keys</b><span><code>ANTHROPIC_API_KEY</code>, <code>LINEAR_API_KEY</code> and a webhook secret.</span></li>
+      <li><b>Connect Zapier</b><span>Trigger: Granola "Note added to folder". Action: POST the note to your webhook.</span></li>
+      <li><b>Match your teams</b><span>Set <code>linear_team</code> and <code>folders</code> in each playbook.</span></li>
+    </ol>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section class="sec">
+    <div class="sec-h"><h2>Design decisions</h2></div>
+    <div class="cols">
+      <div class="panel note"><h3>Evidence for every task</h3><p>Each task carries the quote it came from, so nobody has to rewatch the call to check what was promised.</p></div>
+      <div class="panel note"><h3>Built not to over-assign</h3><ul><li>Only people on the call can be assigned.</li><li>Low-confidence tasks are labelled "Needs review".</li><li>Review mode sends every task to triage first.</li></ul></div>
+      <div class="panel note"><h3>Consent and privacy</h3><p>Tell everyone on the call it is being recorded (required under GDPR and many other laws). Transcripts go only to Claude and Linear. Minuta stores nothing.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Minuta · MIT licence · Alberto Machado Domínguez</span>
+    <span>Granola, Claude, Linear and Zapier are trademarks of their owners. Minuta is an independent project.</span>
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D = window.MINUTA;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const TC = { SAL:"--t-sales", AM:"--t-am", MKT:"--t-mkt", CS:"--t-cs", OPS:"--t-ops" };
+const tc = (key) => `--tc:var(${TC[key] || "--t-ops"})`;
+const PRI_LABEL = { urgent:"Urgent", high:"High", medium:"Medium", low:"Low" };
+const fmtDate = (d) => d ? new Date(d + "T12:00:00").toLocaleDateString("en-GB", { day:"numeric", month:"short" }) : null;
+const initials = (n) => (n || "").split(/\s+/).map((w) => w[0]).join("").slice(0,2).toUpperCase();
+
+function priIcon(p){
+  if (p === "urgent") return `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="3" fill="var(--urgent)"/><rect x="7" y="4" width="2" height="5" rx="1" fill="var(--surface)"/><rect x="7" y="10.5" width="2" height="2" rx="1" fill="var(--surface)"/></svg>`;
+  const n = { high:3, medium:2, low:1 }[p] || 2;
+  const col = `var(--${p})`;
+  return `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">${[0,1,2].map((i) => `<rect x="${2+i*4.5}" y="${10-i*3}" width="3" height="${4+i*3}" rx="1" fill="${i < n ? col : "var(--line)"}"/>`).join("")}</svg>`;
+}
+
+// Example picker
+let cur = 0, open = -1;
+$("picker").innerHTML = D.examples.map((e, i) =>
+  `<button role="tab" id="ex-${e.id}" aria-selected="${i===0}" style="${tc(e.linearTeam)}" data-i="${i}"><span class="k">${e.linearTeam}</span>${esc(e.team)}</button>`).join("");
+$("picker").addEventListener("click", (ev) => { const b = ev.target.closest("button"); if (b) show(+b.dataset.i); });
+
+function show(i){
+  cur = i; open = -1;
+  const e = D.examples[i];
+  [...$("picker").children].forEach((b, j) => b.setAttribute("aria-selected", j === i));
+  $("call-chip").innerHTML = `<span class="chip" style="${tc(e.linearTeam)}">${e.linearTeam} · ${esc(e.team)}</span>`;
+  $("call-meta").innerHTML = `<h3>${esc(e.title)}</h3><div class="meta-row"><span><b>${fmtDate(e.date)}</b> 2026</span><span>Folder: <b>${e.folder ? esc(e.folder) : "none"}</b></span><span>${e.attendees.map((a) => esc(a.name)).join(", ")}</span></div>`;
+  $("route").innerHTML = e.routedBy === "folder"
+    ? `<span class="chip" style="${tc(e.linearTeam)}">FOLDER</span><span>Saved in “${esc(e.folder)}”, which belongs to the ${esc(e.team)} playbook.</span>`
+    : `<span class="chip" style="--tc:var(--rec)">CLAUDE</span><span>No folder, so Claude chose the team: ${esc(e.routeReason)}</span>`;
+  $("transcript").innerHTML = e.transcript.split("\n").map((l, k) => {
+    const m = l.match(/^([^:]{1,30}):\s*(.*)$/);
+    return `<div class="line" data-k="${k}">${m ? `<span class="who">${esc(m[1])}</span>${esc(m[2])}` : esc(l)}</div>`;
+  }).join("");
+  $("transcript").scrollTop = 0;
+  $("summary").textContent = e.summary;
+  $("count").textContent = `${e.tasks.length} issues · ${e.linearTeam}`;
+  $("issues").innerHTML = e.tasks.map((t, k) => {
+    const who = t.flagged ? null : t.owner_name;
+    return `<li class="issue" role="button" tabindex="0" aria-pressed="false" data-k="${k}" style="${tc(e.linearTeam)}">
+      <span class="pri" title="${PRI_LABEL[t.priority]} priority">${priIcon(t.priority)}</span>
+      <span class="t">${esc(t.title)}</span>
+      <span class="row">
+        <span class="idk">${e.linearTeam}-${101 + k}</span>
+        <span class="pill"><span class="av ${who ? "" : "none"}">${who ? initials(who) : ""}</span>${who ? esc(who) : "Unassigned"}</span>
+        ${t.due_date ? `<span class="pill">Due ${fmtDate(t.due_date)}</span>` : ""}
+        ${t.type ? `<span class="pill">${esc(t.type.replace(/_/g, " "))}</span>` : ""}
+        ${t.flagged ? `<span class="pill flag">Needs review</span>` : ""}
+      </span>
+      <div class="detail">
+        ${t.description ? `<p>${esc(t.description)}</p>` : ""}
+        <blockquote>${esc(t.evidence)}</blockquote>
+        <div class="conf">Confidence <span class="bar"><i style="width:${Math.round(t.confidence*100)}%"></i></span>${Math.round(t.confidence*100)}%</div>
+      </div>
+    </li>`;
+  }).join("");
+  highlight(null);
+}
+
+// Find the transcript lines a task's evidence quote came from.
+function linesFor(t){
+  const lines = D.examples[cur].transcript.split("\n").map((l) => l.toLowerCase());
+  const frags = t.evidence.toLowerCase().split(/\s*\/\s*|\.\.\.|…/).map((s) => s.trim()).filter((s) => s.length > 6);
+  const hits = new Set();
+  frags.forEach((f) => {
+    const probe = f.slice(0, 40);
+    lines.forEach((l, k) => { if (l.includes(probe)) hits.add(k); });
+  });
+  return hits;
+}
+function highlight(t){
+  const hits = t ? linesFor(t) : new Set();
+  let first = null;
+  [...$("transcript").children].forEach((el) => {
+    const on = hits.has(+el.dataset.k);
+    el.classList.toggle("hit", on);
+    if (on && first === null) first = el;
+  });
+  if (first) {
+    const box = $("transcript");
+    box.scrollTo({ top: first.offsetTop - box.offsetTop - 40, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+}
+function toggle(li){
+  const k = +li.dataset.k;
+  open = open === k ? -1 : k;
+  [...$("issues").children].forEach((el) => el.setAttribute("aria-pressed", +el.dataset.k === open));
+  highlight(open >= 0 ? D.examples[cur].tasks[open] : null);
+}
+$("issues").addEventListener("click", (ev) => { const li = ev.target.closest(".issue"); if (li) toggle(li); });
+$("issues").addEventListener("keydown", (ev) => {
+  if ((ev.key === "Enter" || ev.key === " ") && ev.target.classList.contains("issue")) { ev.preventDefault(); toggle(ev.target); }
+});
+
+// Playbooks
+function md(text){
+  const out = []; let list = false;
+  const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>");
+  for (const raw of text.split("\n")) {
+    const l = raw.trimEnd();
+    if (/^- /.test(l)) { if (!list) { out.push("<ul>"); list = true; } out.push(`<li>${inline(l.slice(2))}</li>`); continue; }
+    if (list) { out.push("</ul>"); list = false; }
+    if (/^## /.test(l)) out.push(`<h4>${inline(l.slice(3))}</h4>`);
+    else if (l.trim()) out.push(`<p>${inline(l)}</p>`);
+  }
+  if (list) out.push("</ul>");
+  return out.join("");
+}
+$("pb-list").innerHTML = D.playbooks.map((p, i) =>
+  `<button role="tab" aria-selected="${i===0}" data-i="${i}" style="${tc(p.linearTeam)}"><span>${esc(p.team)}</span><span class="chip">${p.linearTeam}</span></button>`).join("")
+  + `<div class="add">+ Your team: copy <code>playbooks/_template.md</code></div>`;
+$("pb-list").addEventListener("click", (ev) => { const b = ev.target.closest("button"); if (b) showPb(+b.dataset.i); });
+function showPb(i){
+  const p = D.playbooks[i];
+  [...$("pb-list").querySelectorAll("button")].forEach((b, j) => b.setAttribute("aria-selected", j === i));
+  $("pb-body").innerHTML = `<div class="file">playbooks/${esc(p.id)}.md</div>
+    <div class="fm">team: ${esc(p.team)}\nlinear_team: ${esc(p.linearTeam)}\nfolders: ${esc(p.folders.join(", "))}</div>${md(p.instructions)}`;
+}
+
+show(0); showPb(0);
+})();
+</script>
+</body>
+</html>
