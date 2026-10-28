@@ -1,0 +1,60 @@
+{
+  "summary": "Maya (Northwind) ran discovery with Lars and Ingrid from Fjord Logistics. Bergen has a 3% mis-pick rate across about 40 pickers per shift, and they want it under 1% before the summer peak. Budget is about NOK 600k this year; CFO Henrik Dahl must approve anything above and should be involved early. They are also comparing a larger Autostore proposal. Target: a pilot starting in January.",
+  "tasks": [
+    {
+      "title": "Send payback model to Fjord Logistics for CFO Henrik Dahl",
+      "description": "Build the payback model on Fjord's numbers: 3% mis-pick rate in Bergen, about 40 pickers per shift, target under 1%. Henrik will focus on payback period.",
+      "type": "send_material",
+      "owner_name": "Maya Okafor",
+      "owner_email": "maya@northwind.example",
+      "due_date": "2026-10-30",
+      "priority": "high",
+      "evidence": "I'll put together a payback model for Henrik based on your 3% error rate and forty pickers. I can have that to you by Friday.",
+      "confidence": 0.96
+    },
+    {
+      "title": "Book technical call with Tomás and Ingrid on Manhattan WMS integration",
+      "description": "Ingrid is worried about integration time after a previous vendor took six months. She is free Tuesday or Wednesday next week.",
+      "type": "next_step",
+      "owner_name": "Maya Okafor",
+      "owner_email": "maya@northwind.example",
+      "due_date": "2026-11-04",
+      "priority": "high",
+      "evidence": "I'll ... connect you with our solutions engineer, Tomás, for a technical call next week. / Tuesday or Wednesday works for me.",
+      "confidence": 0.91
+    },
+    {
+      "title": "Send Manhattan integration case study to Ingrid Solberg",
+      "description": "Answers the integration-time objection before the technical call.",
+      "type": "objection",
+      "owner_name": "Maya Okafor",
+      "owner_email": "maya@northwind.example",
+      "due_date": null,
+      "priority": "medium",
+      "evidence": "I'll send you our Manhattan integration case study",
+      "confidence": 0.93
+    },
+    {
+      "title": "Prepare pilot proposal with Autostore comparison for Fjord Logistics",
+      "description": "Side-by-side of a 40-picker pick-to-light pilot against a full automation project. Send after the payback model and technical call.",
+      "type": "objection",
+      "owner_name": "Maya Okafor",
+      "owner_email": "maya@northwind.example",
+      "due_date": null,
+      "priority": "medium",
+      "evidence": "I'll include a side-by-side in the proposal, focused on what a forty-picker pilot costs versus a full automation project.",
+      "confidence": 0.88
+    },
+    {
+      "title": "Update Fjord Logistics deal: NOK 600k budget, CFO approval, January pilot",
+      "description": "Budget about NOK 600k this year. Decision maker above budget: Henrik Dahl (CFO). Competitor: Autostore. Possible expansion to Stavanger and Trondheim next year.",
+      "type": "crm_update",
+      "owner_name": "Maya Okafor",
+      "owner_email": "maya@northwind.example",
+      "due_date": "2026-10-26",
+      "priority": "low",
+      "evidence": "I'll also update our notes on the timeline.",
+      "confidence": 0.82
+    }
+  ]
+}
