@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "sync": "node scripts/sync-granola.js",
     "demo": "node scripts/demo.js",
     "build:demo": "node scripts/build-demo.js",
     "test": "node --test test/*.test.js"
