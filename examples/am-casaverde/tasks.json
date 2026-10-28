@@ -1,0 +1,60 @@
+{
+  "summary": "Monthly review with Sofía Medina (Casa Verde Hotels). Direct bookings rose 14% month on month, led by Tulum. The October report wrongly listed Oaxaca as a separate brand, and Sofía's director noticed. Casa Verde opens Valle de Bravo in March and wants a launch plan. A new head of marketing, Carla Ruiz, starts on 10 November and will review all agencies in her first month.",
+  "tasks": [
+    {
+      "title": "Resend October report with Oaxaca under Casa Verde Hotels",
+      "description": "Oaxaca was merged into the Casa Verde brand in September. The last report still showed it separately and the client's director noticed.",
+      "type": "client_request",
+      "owner_name": "Priya Nair",
+      "owner_email": "priya@brightline.example",
+      "due_date": "2026-10-28",
+      "priority": "urgent",
+      "evidence": "Priya, can you fix the October report so Oaxaca sits under Casa Verde, and resend it? / Yes, I'll have the revised version out tomorrow.",
+      "confidence": 0.97
+    },
+    {
+      "title": "Send Valle de Bravo launch plan outline to Casa Verde Hotels",
+      "description": "First outline with channels and a rough budget for the March opening.",
+      "type": "deliverable",
+      "owner_name": "Daniel Reyes",
+      "owner_email": "daniel@brightline.example",
+      "due_date": "2026-11-10",
+      "priority": "high",
+      "evidence": "I'll put together a first outline with channels and a rough budget. Would two weeks work? / Two weeks is fine.",
+      "confidence": 0.94
+    },
+    {
+      "title": "Chase approval of December holiday creatives with Casa Verde",
+      "description": "Sent on 15 October and currently with the client's legal team. Sofía will push but can't promise approval before next week.",
+      "type": "approval",
+      "owner_name": "Daniel Reyes",
+      "owner_email": "daniel@brightline.example",
+      "due_date": "2026-11-03",
+      "priority": "high",
+      "evidence": "Legal has them. I'll push, but I can't promise before next week.",
+      "confidence": 0.86
+    },
+    {
+      "title": "Prepare results one-pager and book intro with Carla Ruiz",
+      "description": "New head of marketing starts 10 November and will review all agencies in her first month. Risk to the account if she doesn't see results early.",
+      "type": "risk",
+      "owner_name": "Daniel Reyes",
+      "owner_email": "daniel@brightline.example",
+      "due_date": "2026-11-13",
+      "priority": "high",
+      "evidence": "She'll want to review all agencies in her first month, so I'd like her to see results early.",
+      "confidence": 0.9
+    },
+    {
+      "title": "Follow up on booking engine analytics access for Priya",
+      "description": "Sofía will ask IT for viewer access. Until then, conversions are estimated.",
+      "type": "approval",
+      "owner_name": "Priya Nair",
+      "owner_email": "priya@brightline.example",
+      "due_date": null,
+      "priority": "medium",
+      "evidence": "I'll ask IT to give you viewer access.",
+      "confidence": 0.64
+    }
+  ]
+}
