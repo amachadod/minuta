@@ -1,0 +1,26 @@
+{
+  "name": "minuta",
+  "version": "1.0.0",
+  "description": "Minuta turns every call into tasks for the right team. Granola call notes in, Claude extracts the work, Linear issues out.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Alberto Machado Domínguez",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "demo": "node scripts/demo.js",
+    "build:demo": "node scripts/build-demo.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "granola",
+    "claude",
+    "linear",
+    "meeting-notes",
+    "automation",
+    "sales-ops",
+    "account-management"
+  ]
+}
