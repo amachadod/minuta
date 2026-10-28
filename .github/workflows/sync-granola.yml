@@ -1,0 +1,37 @@
+# Direct mode for Granola Business/Enterprise: no Zapier, no server.
+# Every hour GitHub runs Minuta, which collects new notes from your Granola team folders
+# and creates the tasks in Linear. Add the secrets in Settings → Secrets and variables → Actions.
+#
+# Running this on your real calls? Use a PRIVATE copy of the repo ("Use this template" → Private).
+# Minuta never prints call content, but run logs of public repositories are visible to anyone.
+
+name: Sync Granola calls to Linear
+
+on:
+  schedule:
+    - cron: "17 * * * *" # every hour at :17 (UTC). GitHub may start it a few minutes late.
+  workflow_dispatch: {} # adds a "Run workflow" button in the Actions tab
+
+concurrency:
+  group: minuta-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    # Only runs once you've added a Granola key, so the public portfolio repo stays quiet.
+    if: ${{ vars.MINUTA_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-granola.js
+        env:
+          GRANOLA_API_KEY: ${{ secrets.GRANOLA_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          REVIEW_MODE: ${{ vars.REVIEW_MODE || 'false' }}
+          DRY_RUN: ${{ vars.DRY_RUN || 'false' }}
+          LOOKBACK_HOURS: "24"
