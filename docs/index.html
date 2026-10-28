@@ -146,6 +146,9 @@ a{color:inherit}
 @media (max-width:860px){.cols{grid-template-columns:minmax(0,1fr)}}
 .note{padding:18px 20px}
 .note h3{margin:0 0 6px;font-size:16px}
+.cols.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.cols.two{grid-template-columns:minmax(0,1fr)}}
+.note code{font-family:var(--f-mono);font-size:12px;background:var(--soft);padding:1px 5px;border-radius:4px;color:var(--ink)}
 .note p,.note li{font-size:14px;color:var(--muted);margin:0}
 .note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
 .setup{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
@@ -183,7 +186,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
   </section>
 
   <div class="flow" role="list" aria-label="How Minuta works">
-    <div class="step" role="listitem"><span class="n">01 · RECORD</span><h3>The call is recorded</h3><p>Granola takes notes and a transcript. You save the note to a team folder.</p><span class="tool">Granola + Zapier</span></div>
+    <div class="step" role="listitem"><span class="n">01 · RECORD</span><h3>The call is recorded</h3><p>Granola takes notes and a transcript. You save the note to a team folder.</p><span class="tool">Granola API or Zapier</span></div>
     <div class="step" role="listitem"><span class="n">02 · ROUTE</span><h3>Minuta picks the team</h3><p>The folder decides the team. No folder? Claude reads the call and chooses.</p><span class="tool">Minuta</span></div>
     <div class="step" role="listitem"><span class="n">03 · EXTRACT</span><h3>Claude finds the work</h3><p>Using that team's playbook: owners, deadlines, priority and the quote that proves it.</p><span class="tool">Claude API</span></div>
     <div class="step" role="listitem"><span class="n">04 · ASSIGN</span><h3>Tasks land in Linear</h3><p>One issue per task, in the right team. Unsure tasks are flagged for review.</p><span class="tool">Linear API</span></div>
@@ -229,14 +232,20 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
   <section class="sec" id="setup">
     <div class="sec-h">
       <h2>Run it on your own calls</h2>
-      <p>Needs a paid Granola plan (desktop app), a Claude API key and a Linear workspace. Full guide in the README.</p>
+      <p>Granola is always the source. Pick how the notes reach Minuta. Both need a Claude API key and a Linear workspace. Full guide in the README.</p>
     </div>
-    <ol class="setup">
-      <li><b>Deploy the webhook</b><span>Deploy to Vercel (the <code>api/</code> folder is ready), or run <code>npm start</code>. No dependencies.</span></li>
-      <li><b>Add your keys</b><span><code>ANTHROPIC_API_KEY</code>, <code>LINEAR_API_KEY</code> and a webhook secret.</span></li>
-      <li><b>Connect Zapier</b><span>Trigger: Granola "Note added to folder". Action: POST the note to your webhook.</span></li>
-      <li><b>Match your teams</b><span>Set <code>linear_team</code> and <code>folders</code> in each playbook.</span></li>
-    </ol>
+    <div class="cols two">
+      <div class="panel note">
+        <h3>Direct · Granola Business or Enterprise</h3>
+        <p style="margin-bottom:10px">No Zapier, no server. GitHub's free scheduler runs Minuta every hour and collects new notes from your team folders.</p>
+        <ul><li>Make a private copy of the repo</li><li>Create a Granola API key</li><li>Add <code>GRANOLA_API_KEY</code>, <code>ANTHROPIC_API_KEY</code> and <code>LINEAR_API_KEY</code> as GitHub secrets</li><li>Run it once from the Actions tab</li></ul>
+      </div>
+      <div class="panel note">
+        <h3>Zapier · any paid Granola plan</h3>
+        <p style="margin-bottom:10px">Tasks appear as soon as the note is saved. Needs a Zapier account and a server for the webhook.</p>
+        <ul><li>Deploy to Vercel (the <code>api/</code> folder is ready) or run <code>npm start</code></li><li>Add your Claude and Linear keys and a webhook secret</li><li>Zap: Granola "Note added to folder" → POST to your webhook</li><li>Set <code>linear_team</code> and <code>folders</code> in each playbook</li></ul>
+      </div>
+    </div>
   </section>
 
   <div class="spacer"></div>
