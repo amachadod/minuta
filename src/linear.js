@@ -59,8 +59,18 @@ export function createLinearClient({ apiKey, fetchImpl = fetch }) {
     return d.issueCreate.issue;
   }
 
-  return { teamId, userIdByEmail, labelId, createIssue };
+  // True if Minuta already created issues for this Granola note. Lets the scheduled sync
+  // run every hour without creating duplicates, and without storing any state.
+  async function hasIssuesForNote(noteId) {
+    if (!noteId) return false;
+    const d = await gql(`query($ref:String!){issues(first:1,filter:{description:{contains:$ref}}){nodes{id}}}`, { ref: noteRef(noteId) });
+    return d.issues.nodes.length > 0;
+  }
+
+  return { teamId, userIdByEmail, labelId, createIssue, hasIssuesForNote };
 }
+
+export const noteRef = (id) => `minuta-ref:${id}`;
 
 export function issueDescription(task, note, { flagged }) {
   const lines = [];
@@ -73,7 +83,7 @@ export function issueDescription(task, note, { flagged }) {
     task.type ? `**Type:** ${task.type}` : null,
     `**Confidence:** ${Math.round(task.confidence * 100)}%`,
   ].filter(Boolean);
-  lines.push(...meta, "", "_Created by Minuta_");
+  lines.push(...meta, "", note.id ? `_Created by Minuta · ${noteRef(note.id)}_` : "_Created by Minuta_");
   return lines.join("\n");
 }
 

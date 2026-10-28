@@ -22,6 +22,10 @@ export function getConfig(env = process.env) {
     minConfidence: Number(env.MIN_CONFIDENCE ?? 0.6),
     dryRun: env.DRY_RUN === "true",
     port: Number(env.PORT || 8787),
+    granolaKey: env.GRANOLA_API_KEY || "",
+    lookbackHours: Number(env.LOOKBACK_HOURS || 24),
+    // Skip notes edited in the last few minutes: Granola may still be writing the summary.
+    settleMinutes: Number(env.SETTLE_MINUTES ?? 10),
     playbooksDir: env.MINUTA_PLAYBOOKS_DIR || new URL("../playbooks/", import.meta.url).pathname,
   };
 }
