@@ -1,0 +1,60 @@
+{
+  "summary": "Mid-campaign check-in on the Kettle & Co winter gift-box campaign. Meta prospecting is at a £38 CPA against a £25 target, Google Search is at £14 and retargeting is on track. Meta results may be under-reported because the pixel stopped firing on the new checkout. The team agreed to shift budget to Search, brief a vertical video and run a landing page A/B test.",
+  "tasks": [
+    {
+      "title": "Move £2,000 from Meta prospecting to Google Search gift terms",
+      "description": "Meta prospecting CPA £38 vs £25 target; Google Search gift terms at £14. Shift £2,000 of the remaining Meta prospecting budget.",
+      "type": "campaign_change",
+      "owner_name": "Omar Siddiqui",
+      "owner_email": "omar@kettleandco.example",
+      "due_date": "2026-10-28",
+      "priority": "high",
+      "evidence": "Let's move £2,000 of the remaining Meta prospecting budget into Google Search gift terms. Omar, can you do that today? / Yes, today.",
+      "confidence": 0.97
+    },
+    {
+      "title": "Fix Meta pixel on the new checkout page",
+      "description": "Pixel stopped firing after the site update, so Meta conversions may be under-reported. Fix before judging Meta performance. Raise with the dev team today.",
+      "type": "tracking",
+      "owner_name": "Omar Siddiqui",
+      "owner_email": "omar@kettleandco.example",
+      "due_date": "2026-10-28",
+      "priority": "urgent",
+      "evidence": "The Meta pixel isn't firing on the new checkout page since the site update.",
+      "confidence": 0.95
+    },
+    {
+      "title": "Brief 15-second vertical unboxing video for Reels and TikTok",
+      "description": "Format: 15s, vertical. Channels: Instagram Reels and TikTok. Message: the gift box arrives ready to give, no wrapping. Brief the freelancer by Monday 2 November; delivery 13 November.",
+      "type": "creative_brief",
+      "owner_name": "Lucy Tran",
+      "owner_email": "lucy@kettleandco.example",
+      "due_date": "2026-11-02",
+      "priority": "high",
+      "evidence": "If I brief the freelancer by Monday we'd have it by the 13th. / Do it.",
+      "confidence": 0.93
+    },
+    {
+      "title": "Draft gift guide email for 20 November send",
+      "description": "Draft for Hannah's review by 14 November.",
+      "type": "content",
+      "owner_name": "Lucy Tran",
+      "owner_email": "lucy@kettleandco.example",
+      "due_date": "2026-11-14",
+      "priority": "medium",
+      "evidence": "Yes, draft by the 14th for your review.",
+      "confidence": 0.95
+    },
+    {
+      "title": "Set up landing page A/B test: free shipping vs 10% off",
+      "description": "Hypothesis: free shipping messaging converts better than 10% off for gift buyers. Start once the new video is live; run at least two weeks.",
+      "type": "test",
+      "owner_name": "Lucy Tran",
+      "owner_email": "lucy@kettleandco.example",
+      "due_date": null,
+      "priority": "medium",
+      "evidence": "Lucy, can you set up the A/B test once the video's live? / Sure. I'd want at least two weeks of data.",
+      "confidence": 0.89
+    }
+  ]
+}

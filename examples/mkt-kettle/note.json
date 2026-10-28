@@ -1,0 +1,10 @@
+{
+  "id": "example-mkt-kettle",
+  "title": "Kettle & Co: winter campaign check-in",
+  "date": "2026-10-28",
+  "folder": "Campaigns",
+  "creator": { "name": "Hannah Brooks", "email": "hannah@kettleandco.example" },
+  "attendees": "Hannah Brooks <hannah@kettleandco.example>, Omar Siddiqui <omar@kettleandco.example>, Lucy Tran <lucy@kettleandco.example>",
+  "link": "https://notes.granola.ai/example/mkt-kettle",
+  "transcript": "Hannah: Two weeks into the winter gift-box campaign. Omar, numbers?\nOmar: Meta prospecting is at £38 CPA, target was £25. Google Search brand and gift terms are at £14. Retargeting is fine.\nHannah: So Search is carrying it. Let's move £2,000 of the remaining Meta prospecting budget into Google Search gift terms. Omar, can you do that today?\nOmar: Yes, today.\nHannah: On Meta, I don't think the static is working. Lucy, what do we have in video?\nLucy: Nothing finished. I could brief a 15-second unboxing video, vertical, for Reels and TikTok. If I brief the freelancer by Monday we'd have it by the 13th.\nHannah: Do it. Message: the gift box arrives ready to give, no wrapping.\nLucy: Got it.\nOmar: One problem. The Meta pixel isn't firing on the new checkout page since the site update. Our conversion numbers on Meta might be under-reported.\nHannah: That changes things. Omar, get that fixed with the dev team before we judge Meta. Priority.\nOmar: I'll raise it with dev today.\nHannah: And I'd like to test free shipping messaging versus 10% off on the landing page. Lucy, can you set up the A/B test once the video's live?\nLucy: Sure. I'd want at least two weeks of data.\nHannah: Fine. Last thing: email. We said a gift guide email for the 20th. Lucy, still on?\nLucy: Yes, draft by the 14th for your review."
+}
