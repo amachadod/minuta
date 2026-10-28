@@ -1,0 +1,10 @@
+{
+  "id": "example-ops-atlas",
+  "title": "Atlas Agency: weekly ops sync",
+  "date": "2026-10-26",
+  "folder": "Weekly sync",
+  "creator": { "name": "Jonas Weber", "email": "jonas@atlas.example" },
+  "attendees": "Jonas Weber <jonas@atlas.example>, Amara Diallo <amara@atlas.example>, Felix Braun <felix@atlas.example>, Nina Kowalski <nina@atlas.example>",
+  "link": "https://notes.granola.ai/example/ops-atlas",
+  "transcript": "Jonas: Quick sync. First, the new contract template. Legal signed it off on Friday.\nAmara: So from now on every new client uses version 3?\nJonas: Yes, decided. Amara, can you update the onboarding checklist so it links to v3 and tell the account team?\nAmara: I'll do it by Wednesday.\nJonas: Felix, timesheets.\nFelix: Still blocked. Half the team can't log in to Harvest since we switched to Google SSO.\nJonas: That's been two weeks. Who owns the SSO setup?\nNina: I set it up. I think it's a domain mapping issue. I'll look at it today.\nJonas: Thanks, Nina. Felix, once it's fixed, can you remind everyone to backfill October hours?\nFelix: Yes.\nJonas: Last thing. Hiring. We need the job ad for the junior account manager role up this week.\nAmara: I have a draft. I'll share it with you tomorrow for review.\nJonas: Great. And we agreed last month to try a no-meeting Friday. Let's start this Friday. Everyone OK?\nNina: Yes.\nFelix: Yes.\nJonas: Someone needs to tell the clients' account leads so nobody books Friday calls.\nJonas: Hmm, let's figure that out later."
+}

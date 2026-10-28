@@ -1,0 +1,60 @@
+{
+  "summary": "Weekly operations sync at Atlas Agency. Decisions: contract template v3 is now mandatory for every new client, and no-meeting Fridays start this week. Timesheets have been blocked for two weeks because half the team can't log in to Harvest since the switch to Google SSO. The junior account manager job ad needs to go live this week.",
+  "tasks": [
+    {
+      "title": "Update onboarding checklist to contract template v3 and tell the account team",
+      "description": "Legal signed off v3 on Friday. Decision: every new client uses v3 from now on.",
+      "type": "decision",
+      "owner_name": "Amara Diallo",
+      "owner_email": "amara@atlas.example",
+      "due_date": "2026-10-28",
+      "priority": "medium",
+      "evidence": "Amara, can you update the onboarding checklist so it links to v3 and tell the account team? / I'll do it by Wednesday.",
+      "confidence": 0.96
+    },
+    {
+      "title": "Fix Harvest login with Google SSO (domain mapping)",
+      "description": "Half the team can't log in to Harvest since the switch to Google SSO, so timesheets have been blocked for two weeks. Nina suspects a domain mapping issue.",
+      "type": "blocker",
+      "owner_name": "Nina Kowalski",
+      "owner_email": "nina@atlas.example",
+      "due_date": "2026-10-26",
+      "priority": "urgent",
+      "evidence": "I think it's a domain mapping issue. I'll look at it today.",
+      "confidence": 0.94
+    },
+    {
+      "title": "Remind team to backfill October hours in Harvest",
+      "description": "Only after the SSO login fix is live.",
+      "type": "action_item",
+      "owner_name": "Felix Braun",
+      "owner_email": "felix@atlas.example",
+      "due_date": null,
+      "priority": "medium",
+      "evidence": "Felix, once it's fixed, can you remind everyone to backfill October hours? / Yes.",
+      "confidence": 0.9
+    },
+    {
+      "title": "Share junior account manager job ad draft with Jonas",
+      "description": "Ad needs to be live this week.",
+      "type": "action_item",
+      "owner_name": "Amara Diallo",
+      "owner_email": "amara@atlas.example",
+      "due_date": "2026-10-27",
+      "priority": "high",
+      "evidence": "I have a draft. I'll share it with you tomorrow for review.",
+      "confidence": 0.95
+    },
+    {
+      "title": "Tell account leads about no-meeting Fridays starting 30 October",
+      "description": "Decision agreed by the team. Nobody took the action on the call, so it needs an owner.",
+      "type": "decision",
+      "owner_name": null,
+      "owner_email": null,
+      "due_date": "2026-10-29",
+      "priority": "high",
+      "evidence": "Someone needs to tell the clients' account leads so nobody books Friday calls. / Hmm, let's figure that out later.",
+      "confidence": 0.55
+    }
+  ]
+}
