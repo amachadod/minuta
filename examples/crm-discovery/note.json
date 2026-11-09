@@ -1,0 +1,13 @@
+{
+ "id": "example-crm-discovery",
+ "title": "Northwind SaaS × Alpine Outdoor Co.: discovery call",
+ "date": "2026-11-03",
+ "folder": "Discovery calls",
+ "creator": {
+  "name": "Priya Nair",
+  "email": "priya@northwind.example"
+ },
+ "attendees": "Priya Nair <priya@northwind.example>, Hanna Berg <hanna@alpineoutdoor.example>, Marc Duval <marc@alpineoutdoor.example>",
+ "link": "https://notes.granola.ai/example/crm-discovery",
+ "transcript": "Priya: Thanks both. Hanna, you mentioned support gets swamped around Black Friday?\nHanna: Completely. We have twelve agents on one shared Gmail inbox. In late November we get about three thousand emails a week.\nMarc: And half of them are 'where is my order', which our Shopify store could answer by itself.\nPriya: That's where our Shopify integration helps: order status shows next to the ticket, and you can send a ready answer in one click.\nHanna: Our goal is a first reply within four hours, even at peak. Today it's closer to two days.\nPriya: What does the timeline look like on your side?\nMarc: Budget for next year is decided in January. We'd want to be live before the spring sale in March.\nPriya: Then here's what I'll do. I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.\nHanna: Great. Can we also see it with our own kind of tickets?\nPriya: Yes, I'll book a demo with our solutions engineer for next week, using sample tickets like yours.\nMarc: I can export last November's ticket volumes so you can size it.\nPriya: That would help, thanks Marc.\nHanna: Oh, and someone will probably ask where the data is stored. Legal might care.\nPriya: Good point, we can look into that."
+}
