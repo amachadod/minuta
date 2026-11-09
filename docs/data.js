@@ -159,7 +159,88 @@ window.MINUTA = {
      "flagged": false,
      "assigned": "maya@northwind.example"
     }
-   ]
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Send payback model to Fjord Logistics for CFO Henrik Dahl",
+      "body": "Build the payback model on Fjord's numbers: 3% mis-pick rate in Bergen, about 40 pickers per shift, target under 1%. Henrik will focus on payback period.\n\nFrom the call: \"I'll put together a payback model for Henrik based on your 3% error rate and forty pickers. I can have that to you by Friday.\"\n\nCall: Northwind × Fjord Logistics: discovery call (2026-10-26)\nAgreed by: Maya Okafor\nConfidence: 96%\n\nCreated by Minuta · minuta-ref:example-sales-fjord",
+      "ownerEmail": "maya@northwind.example",
+      "ownerName": "Maya Okafor",
+      "dueDate": "2026-10-30",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll put together a payback model for Henrik based on your 3% error rate and forty pickers. I can have that to you by Friday.",
+      "confidence": 0.96,
+      "flagged": false
+     },
+     {
+      "subject": "Book technical call with Tomás and Ingrid on Manhattan WMS integration",
+      "body": "Ingrid is worried about integration time after a previous vendor took six months. She is free Tuesday or Wednesday next week.\n\nFrom the call: \"I'll ... connect you with our solutions engineer, Tomás, for a technical call next week. / Tuesday or Wednesday works for me.\"\n\nCall: Northwind × Fjord Logistics: discovery call (2026-10-26)\nAgreed by: Maya Okafor\nConfidence: 91%\n\nCreated by Minuta · minuta-ref:example-sales-fjord",
+      "ownerEmail": "maya@northwind.example",
+      "ownerName": "Maya Okafor",
+      "dueDate": "2026-11-04",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll ... connect you with our solutions engineer, Tomás, for a technical call next week. / Tuesday or Wednesday works for me.",
+      "confidence": 0.91,
+      "flagged": false
+     },
+     {
+      "subject": "Send Manhattan integration case study to Ingrid Solberg",
+      "body": "Answers the integration-time objection before the technical call.\n\nFrom the call: \"I'll send you our Manhattan integration case study\"\n\nCall: Northwind × Fjord Logistics: discovery call (2026-10-26)\nAgreed by: Maya Okafor\nConfidence: 93%\n\nCreated by Minuta · minuta-ref:example-sales-fjord",
+      "ownerEmail": "maya@northwind.example",
+      "ownerName": "Maya Okafor",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll send you our Manhattan integration case study",
+      "confidence": 0.93,
+      "flagged": false
+     },
+     {
+      "subject": "Prepare pilot proposal with Autostore comparison for Fjord Logistics",
+      "body": "Side-by-side of a 40-picker pick-to-light pilot against a full automation project. Send after the payback model and technical call.\n\nFrom the call: \"I'll include a side-by-side in the proposal, focused on what a forty-picker pilot costs versus a full automation project.\"\n\nCall: Northwind × Fjord Logistics: discovery call (2026-10-26)\nAgreed by: Maya Okafor\nConfidence: 88%\n\nCreated by Minuta · minuta-ref:example-sales-fjord",
+      "ownerEmail": "maya@northwind.example",
+      "ownerName": "Maya Okafor",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll include a side-by-side in the proposal, focused on what a forty-picker pilot costs versus a full automation project.",
+      "confidence": 0.88,
+      "flagged": false
+     },
+     {
+      "subject": "Update Fjord Logistics deal: NOK 600k budget, CFO approval, January pilot",
+      "body": "Budget about NOK 600k this year. Decision maker above budget: Henrik Dahl (CFO). Competitor: Autostore. Possible expansion to Stavanger and Trondheim next year.\n\nFrom the call: \"I'll also update our notes on the timeline.\"\n\nCall: Northwind × Fjord Logistics: discovery call (2026-10-26)\nAgreed by: Maya Okafor\nConfidence: 82%\n\nCreated by Minuta · minuta-ref:example-sales-fjord",
+      "ownerEmail": "maya@northwind.example",
+      "ownerName": "Maya Okafor",
+      "dueDate": "2026-10-26",
+      "priority": "LOW",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll also update our notes on the timeline.",
+      "confidence": 0.82,
+      "flagged": false
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Lars Eide <lars.eide@fjordlogistics.example>",
+      "Ingrid Solberg <ingrid@fjordlogistics.example>"
+     ],
+     "subject": "Follow-up: Northwind × Fjord Logistics: discovery call",
+     "body": "Hi Lars and Ingrid,\n\nThanks for your time today. Here's what we agreed:\n- Send payback model to Fjord Logistics for CFO Henrik Dahl (by 2026-10-30)\n- Book technical call with Tomás and Ingrid on Manhattan WMS integration (by 2026-11-04)\n- Send Manhattan integration case study to Ingrid Solberg\n- Prepare pilot proposal with Autostore comparison for Fjord Logistics\n\nLet me know if I missed anything.\n\nMaya Okafor",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
   },
   {
    "id": "am-casaverde",
@@ -252,7 +333,87 @@ window.MINUTA = {
      "flagged": false,
      "assigned": "priya@brightline.example"
     }
-   ]
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Resend October report with Oaxaca under Casa Verde Hotels",
+      "body": "Oaxaca was merged into the Casa Verde brand in September. The last report still showed it separately and the client's director noticed.\n\nFrom the call: \"Priya, can you fix the October report so Oaxaca sits under Casa Verde, and resend it? / Yes, I'll have the revised version out tomorrow.\"\n\nCall: Casa Verde Hotels: monthly review (October) (2026-10-27)\nAgreed by: Priya Nair\nConfidence: 97%\n\nCreated by Minuta · minuta-ref:example-am-casaverde",
+      "ownerEmail": "priya@brightline.example",
+      "ownerName": "Priya Nair",
+      "dueDate": "2026-10-28",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Priya, can you fix the October report so Oaxaca sits under Casa Verde, and resend it? / Yes, I'll have the revised version out tomorrow.",
+      "confidence": 0.97,
+      "flagged": false
+     },
+     {
+      "subject": "Send Valle de Bravo launch plan outline to Casa Verde Hotels",
+      "body": "First outline with channels and a rough budget for the March opening.\n\nFrom the call: \"I'll put together a first outline with channels and a rough budget. Would two weeks work? / Two weeks is fine.\"\n\nCall: Casa Verde Hotels: monthly review (October) (2026-10-27)\nAgreed by: Daniel Reyes\nConfidence: 94%\n\nCreated by Minuta · minuta-ref:example-am-casaverde",
+      "ownerEmail": "daniel@brightline.example",
+      "ownerName": "Daniel Reyes",
+      "dueDate": "2026-11-10",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll put together a first outline with channels and a rough budget. Would two weeks work? / Two weeks is fine.",
+      "confidence": 0.94,
+      "flagged": false
+     },
+     {
+      "subject": "Chase approval of December holiday creatives with Casa Verde",
+      "body": "Sent on 15 October and currently with the client's legal team. Sofía will push but can't promise approval before next week.\n\nFrom the call: \"Legal has them. I'll push, but I can't promise before next week.\"\n\nCall: Casa Verde Hotels: monthly review (October) (2026-10-27)\nAgreed by: Daniel Reyes\nConfidence: 86%\n\nCreated by Minuta · minuta-ref:example-am-casaverde",
+      "ownerEmail": "daniel@brightline.example",
+      "ownerName": "Daniel Reyes",
+      "dueDate": "2026-11-03",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Legal has them. I'll push, but I can't promise before next week.",
+      "confidence": 0.86,
+      "flagged": false
+     },
+     {
+      "subject": "Prepare results one-pager and book intro with Carla Ruiz",
+      "body": "New head of marketing starts 10 November and will review all agencies in her first month. Risk to the account if she doesn't see results early.\n\nFrom the call: \"She'll want to review all agencies in her first month, so I'd like her to see results early.\"\n\nCall: Casa Verde Hotels: monthly review (October) (2026-10-27)\nAgreed by: Daniel Reyes\nConfidence: 90%\n\nCreated by Minuta · minuta-ref:example-am-casaverde",
+      "ownerEmail": "daniel@brightline.example",
+      "ownerName": "Daniel Reyes",
+      "dueDate": "2026-11-13",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "She'll want to review all agencies in her first month, so I'd like her to see results early.",
+      "confidence": 0.9,
+      "flagged": false
+     },
+     {
+      "subject": "Follow up on booking engine analytics access for Priya",
+      "body": "Sofía will ask IT for viewer access. Until then, conversions are estimated.\n\nFrom the call: \"I'll ask IT to give you viewer access.\"\n\nCall: Casa Verde Hotels: monthly review (October) (2026-10-27)\nAgreed by: Priya Nair\nConfidence: 64%\n\nCreated by Minuta · minuta-ref:example-am-casaverde",
+      "ownerEmail": "priya@brightline.example",
+      "ownerName": "Priya Nair",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll ask IT to give you viewer access.",
+      "confidence": 0.64,
+      "flagged": false
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Sofía Medina <sofia.medina@casaverde.example>"
+     ],
+     "subject": "Follow-up: Casa Verde Hotels: monthly review (October)",
+     "body": "Hi Sofía,\n\nThanks for your time today. Here's what we agreed:\n- Resend October report with Oaxaca under Casa Verde Hotels (by 2026-10-28)\n- Send Valle de Bravo launch plan outline to Casa Verde Hotels (by 2026-11-10)\n\nLet me know if I missed anything.\n\nDaniel Reyes",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
   },
   {
    "id": "mkt-kettle",
@@ -345,7 +506,78 @@ window.MINUTA = {
      "flagged": false,
      "assigned": "lucy@kettleandco.example"
     }
-   ]
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Move £2,000 from Meta prospecting to Google Search gift terms",
+      "body": "Meta prospecting CPA £38 vs £25 target; Google Search gift terms at £14. Shift £2,000 of the remaining Meta prospecting budget.\n\nFrom the call: \"Let's move £2,000 of the remaining Meta prospecting budget into Google Search gift terms. Omar, can you do that today? / Yes, today.\"\n\nCall: Kettle & Co: winter campaign check-in (2026-10-28)\nAgreed by: Omar Siddiqui\nConfidence: 97%\n\nCreated by Minuta · minuta-ref:example-mkt-kettle",
+      "ownerEmail": "omar@kettleandco.example",
+      "ownerName": "Omar Siddiqui",
+      "dueDate": "2026-10-28",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Let's move £2,000 of the remaining Meta prospecting budget into Google Search gift terms. Omar, can you do that today? / Yes, today.",
+      "confidence": 0.97,
+      "flagged": false
+     },
+     {
+      "subject": "Fix Meta pixel on the new checkout page",
+      "body": "Pixel stopped firing after the site update, so Meta conversions may be under-reported. Fix before judging Meta performance. Raise with the dev team today.\n\nFrom the call: \"The Meta pixel isn't firing on the new checkout page since the site update.\"\n\nCall: Kettle & Co: winter campaign check-in (2026-10-28)\nAgreed by: Omar Siddiqui\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-mkt-kettle",
+      "ownerEmail": "omar@kettleandco.example",
+      "ownerName": "Omar Siddiqui",
+      "dueDate": "2026-10-28",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "The Meta pixel isn't firing on the new checkout page since the site update.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Brief 15-second vertical unboxing video for Reels and TikTok",
+      "body": "Format: 15s, vertical. Channels: Instagram Reels and TikTok. Message: the gift box arrives ready to give, no wrapping. Brief the freelancer by Monday 2 November; delivery 13 November.\n\nFrom the call: \"If I brief the freelancer by Monday we'd have it by the 13th. / Do it.\"\n\nCall: Kettle & Co: winter campaign check-in (2026-10-28)\nAgreed by: Lucy Tran\nConfidence: 93%\n\nCreated by Minuta · minuta-ref:example-mkt-kettle",
+      "ownerEmail": "lucy@kettleandco.example",
+      "ownerName": "Lucy Tran",
+      "dueDate": "2026-11-02",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "If I brief the freelancer by Monday we'd have it by the 13th. / Do it.",
+      "confidence": 0.93,
+      "flagged": false
+     },
+     {
+      "subject": "Draft gift guide email for 20 November send",
+      "body": "Draft for Hannah's review by 14 November.\n\nFrom the call: \"Yes, draft by the 14th for your review.\"\n\nCall: Kettle & Co: winter campaign check-in (2026-10-28)\nAgreed by: Lucy Tran\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-mkt-kettle",
+      "ownerEmail": "lucy@kettleandco.example",
+      "ownerName": "Lucy Tran",
+      "dueDate": "2026-11-14",
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Yes, draft by the 14th for your review.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Set up landing page A/B test: free shipping vs 10% off",
+      "body": "Hypothesis: free shipping messaging converts better than 10% off for gift buyers. Start once the new video is live; run at least two weeks.\n\nFrom the call: \"Lucy, can you set up the A/B test once the video's live? / Sure. I'd want at least two weeks of data.\"\n\nCall: Kettle & Co: winter campaign check-in (2026-10-28)\nAgreed by: Lucy Tran\nConfidence: 89%\n\nCreated by Minuta · minuta-ref:example-mkt-kettle",
+      "ownerEmail": "lucy@kettleandco.example",
+      "ownerName": "Lucy Tran",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Lucy, can you set up the A/B test once the video's live? / Sure. I'd want at least two weeks of data.",
+      "confidence": 0.89,
+      "flagged": false
+     }
+    ],
+    "followUp": null
+   }
   },
   {
    "id": "cs-sunpeak",
@@ -434,7 +666,87 @@ window.MINUTA = {
      "flagged": false,
      "assigned": "ravi@ledgerly.example"
     }
-   ]
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Fix duplicate invoices for Sunpeak Dental",
+      "body": "Duplicate invoices are created when an appointment is edited after it has been billed. Happened three times this month. Kate will email two or three invoice numbers. Update Kate by Thursday.\n\nFrom the call: \"Three times this month patients got duplicate invoices... It happens when we edit an appointment after it's billed. / I'll get engineering on it and update you by Thursday.\"\n\nCall: Ledgerly / Sunpeak Dental (2026-10-27)\nAgreed by: Ravi Menon\nConfidence: 96%\n\nCreated by Minuta · minuta-ref:example-cs-sunpeak",
+      "ownerEmail": "ravi@ledgerly.example",
+      "ownerName": "Ravi Menon",
+      "dueDate": "2026-10-29",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Three times this month patients got duplicate invoices... It happens when we edit an appointment after it's billed. / I'll get engineering on it and update you by Thursday.",
+      "confidence": 0.96,
+      "flagged": false
+     },
+     {
+      "subject": "Run training session for Sunpeak Dental's two new clinics",
+      "body": "Staff at both new clinics were never properly trained and barely use the product. Session agreed for Wednesday afternoon.\n\nFrom the call: \"Let me run a training session for both new clinics. Could we do next week? / Wednesday afternoon works.\"\n\nCall: Ledgerly / Sunpeak Dental (2026-10-27)\nAgreed by: Ravi Menon\nConfidence: 93%\n\nCreated by Minuta · minuta-ref:example-cs-sunpeak",
+      "ownerEmail": "ravi@ledgerly.example",
+      "ownerName": "Ravi Menon",
+      "dueDate": "2026-11-04",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Let me run a training session for both new clinics. Could we do next week? / Wednesday afternoon works.",
+      "confidence": 0.93,
+      "flagged": false
+     },
+     {
+      "subject": "Churn risk: Sunpeak Dental evaluating Dentally before January renewal",
+      "body": "Owners are comparing Dentally: cheaper, native health fund claims. Low usage at new clinics adds risk. Plan a save strategy.\n\nFrom the call: \"Our contract renews in January and, honestly, the owners are looking at Dentally.\"\n\nCall: Ledgerly / Sunpeak Dental (2026-10-27)\nAgreed by: Ravi Menon\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-cs-sunpeak",
+      "ownerEmail": "ravi@ledgerly.example",
+      "ownerName": "Ravi Menon",
+      "dueDate": null,
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Our contract renews in January and, honestly, the owners are looking at Dentally.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Feature request: native health fund claims (Sunpeak Dental)",
+      "body": "Check roadmap timing with product and reply to Kate. Delivery within six months would affect the renewal decision.\n\nFrom the call: \"If it's coming in the next six months, that matters for the renewal.\"\n\nCall: Ledgerly / Sunpeak Dental (2026-10-27)\nAgreed by: Ravi Menon\nConfidence: 90%\n\nCreated by Minuta · minuta-ref:example-cs-sunpeak",
+      "ownerEmail": "ravi@ledgerly.example",
+      "ownerName": "Ravi Menon",
+      "dueDate": null,
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "If it's coming in the next six months, that matters for the renewal.",
+      "confidence": 0.9,
+      "flagged": false
+     },
+     {
+      "subject": "Book renewal review with Sunpeak Dental owners for early December",
+      "body": "Show usage and the roadmap before the January renewal.\n\nFrom the call: \"Can we set up a renewal review with the owners? / Sure, early December probably.\"\n\nCall: Ledgerly / Sunpeak Dental (2026-10-27)\nAgreed by: Ravi Menon\nConfidence: 78%\n\nCreated by Minuta · minuta-ref:example-cs-sunpeak",
+      "ownerEmail": "ravi@ledgerly.example",
+      "ownerName": "Ravi Menon",
+      "dueDate": "2026-11-13",
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Can we set up a renewal review with the owners? / Sure, early December probably.",
+      "confidence": 0.78,
+      "flagged": false
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Kate Whitfield <kate@sunpeakdental.example>"
+     ],
+     "subject": "Follow-up: Ledgerly / Sunpeak Dental",
+     "body": "Hi Kate,\n\nThanks for your time today. Here's what we agreed:\n- Fix duplicate invoices for Sunpeak Dental (by 2026-10-29)\n- Run training session for Sunpeak Dental's two new clinics (by 2026-11-04)\n- Feature request: native health fund claims (Sunpeak Dental)\n- Book renewal review with Sunpeak Dental owners for early December (by 2026-11-13)\n\nLet me know if I missed anything.\n\nRavi Menon",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
   },
   {
    "id": "ops-atlas",
@@ -531,7 +843,491 @@ window.MINUTA = {
      "flagged": true,
      "assigned": null
     }
-   ]
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Update onboarding checklist to contract template v3 and tell the account team",
+      "body": "Legal signed off v3 on Friday. Decision: every new client uses v3 from now on.\n\nFrom the call: \"Amara, can you update the onboarding checklist so it links to v3 and tell the account team? / I'll do it by Wednesday.\"\n\nCall: Atlas Agency: weekly ops sync (2026-10-26)\nAgreed by: Amara Diallo\nConfidence: 96%\n\nCreated by Minuta · minuta-ref:example-ops-atlas",
+      "ownerEmail": "amara@atlas.example",
+      "ownerName": "Amara Diallo",
+      "dueDate": "2026-10-28",
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Amara, can you update the onboarding checklist so it links to v3 and tell the account team? / I'll do it by Wednesday.",
+      "confidence": 0.96,
+      "flagged": false
+     },
+     {
+      "subject": "Fix Harvest login with Google SSO (domain mapping)",
+      "body": "Half the team can't log in to Harvest since the switch to Google SSO, so timesheets have been blocked for two weeks. Nina suspects a domain mapping issue.\n\nFrom the call: \"I think it's a domain mapping issue. I'll look at it today.\"\n\nCall: Atlas Agency: weekly ops sync (2026-10-26)\nAgreed by: Nina Kowalski\nConfidence: 94%\n\nCreated by Minuta · minuta-ref:example-ops-atlas",
+      "ownerEmail": "nina@atlas.example",
+      "ownerName": "Nina Kowalski",
+      "dueDate": "2026-10-26",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I think it's a domain mapping issue. I'll look at it today.",
+      "confidence": 0.94,
+      "flagged": false
+     },
+     {
+      "subject": "Remind team to backfill October hours in Harvest",
+      "body": "Only after the SSO login fix is live.\n\nFrom the call: \"Felix, once it's fixed, can you remind everyone to backfill October hours? / Yes.\"\n\nCall: Atlas Agency: weekly ops sync (2026-10-26)\nAgreed by: Felix Braun\nConfidence: 90%\n\nCreated by Minuta · minuta-ref:example-ops-atlas",
+      "ownerEmail": "felix@atlas.example",
+      "ownerName": "Felix Braun",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Felix, once it's fixed, can you remind everyone to backfill October hours? / Yes.",
+      "confidence": 0.9,
+      "flagged": false
+     },
+     {
+      "subject": "Share junior account manager job ad draft with Jonas",
+      "body": "Ad needs to be live this week.\n\nFrom the call: \"I have a draft. I'll share it with you tomorrow for review.\"\n\nCall: Atlas Agency: weekly ops sync (2026-10-26)\nAgreed by: Amara Diallo\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-ops-atlas",
+      "ownerEmail": "amara@atlas.example",
+      "ownerName": "Amara Diallo",
+      "dueDate": "2026-10-27",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I have a draft. I'll share it with you tomorrow for review.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Tell account leads about no-meeting Fridays starting 30 October",
+      "body": "NEEDS REVIEW: Minuta was not fully sure about this task. Check the owner and date before starting.\n\nDecision agreed by the team. Nobody took the action on the call, so it needs an owner.\n\nFrom the call: \"Someone needs to tell the clients' account leads so nobody books Friday calls. / Hmm, let's figure that out later.\"\n\nCall: Atlas Agency: weekly ops sync (2026-10-26)\nConfidence: 55%\n\nCreated by Minuta · minuta-ref:example-ops-atlas",
+      "ownerEmail": null,
+      "ownerName": null,
+      "dueDate": "2026-10-29",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": "Needs review",
+      "evidence": "Someone needs to tell the clients' account leads so nobody books Friday calls. / Hmm, let's figure that out later.",
+      "confidence": 0.55,
+      "flagged": true
+     }
+    ],
+    "followUp": null
+   }
+  },
+  {
+   "id": "crm-discovery",
+   "title": "Northwind SaaS × Alpine Outdoor Co.: discovery call",
+   "date": "2026-11-03",
+   "folder": "Discovery calls",
+   "attendees": [
+    {
+     "name": "Priya Nair",
+     "email": "priya@northwind.example"
+    },
+    {
+     "name": "Hanna Berg",
+     "email": "hanna@alpineoutdoor.example"
+    },
+    {
+     "name": "Marc Duval",
+     "email": "marc@alpineoutdoor.example"
+    }
+   ],
+   "transcript": "Priya: Thanks both. Hanna, you mentioned support gets swamped around Black Friday?\nHanna: Completely. We have twelve agents on one shared Gmail inbox. In late November we get about three thousand emails a week.\nMarc: And half of them are 'where is my order', which our Shopify store could answer by itself.\nPriya: That's where our Shopify integration helps: order status shows next to the ticket, and you can send a ready answer in one click.\nHanna: Our goal is a first reply within four hours, even at peak. Today it's closer to two days.\nPriya: What does the timeline look like on your side?\nMarc: Budget for next year is decided in January. We'd want to be live before the spring sale in March.\nPriya: Then here's what I'll do. I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.\nHanna: Great. Can we also see it with our own kind of tickets?\nPriya: Yes, I'll book a demo with our solutions engineer for next week, using sample tickets like yours.\nMarc: I can export last November's ticket volumes so you can size it.\nPriya: That would help, thanks Marc.\nHanna: Oh, and someone will probably ask where the data is stored. Legal might care.\nPriya: Good point, we can look into that.",
+   "team": "Sales",
+   "linearTeam": "SAL",
+   "routedBy": "folder",
+   "routeReason": "Granola folder \"Discovery calls\"",
+   "summary": "Priya (Northwind SaaS) ran discovery with Hanna and Marc from Alpine Outdoor Co. Twelve agents share one Gmail inbox and get about 3,000 emails a week at peak; they want a first reply within four hours. Budget is decided in January, with a go-live goal before the March spring sale.",
+   "tasks": [
+    {
+     "title": "Send pricing for 12 seats and the Shopify integration one-pager to Alpine Outdoor",
+     "description": "Twelve agents, Shopify store, about 3,000 emails a week at peak.",
+     "type": "send_material",
+     "owner_name": "Priya Nair",
+     "owner_email": "priya@northwind.example",
+     "due_date": "2026-11-05",
+     "priority": "high",
+     "evidence": "I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.",
+     "confidence": 0.95,
+     "flagged": false,
+     "assigned": "priya@northwind.example"
+    },
+    {
+     "title": "Book a demo with a solutions engineer using sample tickets like Alpine's",
+     "description": "Hanna wants to see it with their kind of tickets (order status questions).",
+     "type": "next_step",
+     "owner_name": "Priya Nair",
+     "owner_email": "priya@northwind.example",
+     "due_date": "2026-11-13",
+     "priority": "high",
+     "evidence": "I'll book a demo with our solutions engineer for next week, using sample tickets like yours.",
+     "confidence": 0.9,
+     "flagged": false,
+     "assigned": "priya@northwind.example"
+    },
+    {
+     "title": "Follow up with Marc for last November's ticket volumes",
+     "description": "Marc offered to export them so the proposal can be sized.",
+     "type": "next_step",
+     "owner_name": "Priya Nair",
+     "owner_email": "priya@northwind.example",
+     "due_date": null,
+     "priority": "medium",
+     "evidence": "I can export last November's ticket volumes so you can size it.",
+     "confidence": 0.78,
+     "flagged": false,
+     "assigned": "priya@northwind.example"
+    },
+    {
+     "title": "Find out where customer data is stored for Alpine's legal team",
+     "description": "Raised in passing. Nobody clearly agreed to own it.",
+     "type": "objection",
+     "owner_name": null,
+     "owner_email": null,
+     "due_date": null,
+     "priority": "medium",
+     "evidence": "someone will probably ask where the data is stored. Legal might care. / Good point, we can look into that.",
+     "confidence": 0.5,
+     "flagged": true,
+     "assigned": null
+    }
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Send pricing for 12 seats and the Shopify integration one-pager to Alpine Outdoor",
+      "body": "Twelve agents, Shopify store, about 3,000 emails a week at peak.\n\nFrom the call: \"I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.\"\n\nCall: Northwind SaaS × Alpine Outdoor Co.: discovery call (2026-11-03)\nAgreed by: Priya Nair\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-crm-discovery",
+      "ownerEmail": "priya@northwind.example",
+      "ownerName": "Priya Nair",
+      "dueDate": "2026-11-05",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Book a demo with a solutions engineer using sample tickets like Alpine's",
+      "body": "Hanna wants to see it with their kind of tickets (order status questions).\n\nFrom the call: \"I'll book a demo with our solutions engineer for next week, using sample tickets like yours.\"\n\nCall: Northwind SaaS × Alpine Outdoor Co.: discovery call (2026-11-03)\nAgreed by: Priya Nair\nConfidence: 90%\n\nCreated by Minuta · minuta-ref:example-crm-discovery",
+      "ownerEmail": "priya@northwind.example",
+      "ownerName": "Priya Nair",
+      "dueDate": "2026-11-13",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll book a demo with our solutions engineer for next week, using sample tickets like yours.",
+      "confidence": 0.9,
+      "flagged": false
+     },
+     {
+      "subject": "Follow up with Marc for last November's ticket volumes",
+      "body": "Marc offered to export them so the proposal can be sized.\n\nFrom the call: \"I can export last November's ticket volumes so you can size it.\"\n\nCall: Northwind SaaS × Alpine Outdoor Co.: discovery call (2026-11-03)\nAgreed by: Priya Nair\nConfidence: 78%\n\nCreated by Minuta · minuta-ref:example-crm-discovery",
+      "ownerEmail": "priya@northwind.example",
+      "ownerName": "Priya Nair",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I can export last November's ticket volumes so you can size it.",
+      "confidence": 0.78,
+      "flagged": false
+     },
+     {
+      "subject": "Find out where customer data is stored for Alpine's legal team",
+      "body": "NEEDS REVIEW: Minuta was not fully sure about this task. Check the owner and date before starting.\n\nRaised in passing. Nobody clearly agreed to own it.\n\nFrom the call: \"someone will probably ask where the data is stored. Legal might care. / Good point, we can look into that.\"\n\nCall: Northwind SaaS × Alpine Outdoor Co.: discovery call (2026-11-03)\nConfidence: 50%\n\nCreated by Minuta · minuta-ref:example-crm-discovery",
+      "ownerEmail": null,
+      "ownerName": null,
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": "Needs review",
+      "evidence": "someone will probably ask where the data is stored. Legal might care. / Good point, we can look into that.",
+      "confidence": 0.5,
+      "flagged": true
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Hanna Berg <hanna@alpineoutdoor.example>",
+      "Marc Duval <marc@alpineoutdoor.example>"
+     ],
+     "subject": "Alpine Outdoor × Northwind: next steps from today",
+     "body": "Hi Hanna and Marc,\n\nThanks for the time today. A quick recap of what we agreed:\n\n- I'll send pricing for twelve seats and the Shopify integration one-pager by Thursday.\n- I'll book a demo with our solutions engineer for next week, using sample tickets like yours.\n- Marc will share last November's ticket volumes so we can size it.\n\nYou mentioned a first reply within four hours at peak and going live before the spring sale in March. I'll keep both in mind for the proposal.\n\nBest,\nPriya",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
+  },
+  {
+   "id": "crm-checkin",
+   "title": "Northwind SaaS × Tessera Dental Group: quarterly check-in",
+   "date": "2026-11-04",
+   "folder": "Customer Success",
+   "attendees": [
+    {
+     "name": "Jonas Weber",
+     "email": "jonas@northwind.example"
+    },
+    {
+     "name": "Sofia Lang",
+     "email": "sofia@tesseradental.example"
+    }
+   ],
+   "transcript": "Jonas: How's it going after the first three months?\nSofia: Mostly good. Most of the front desk team uses the saved replies now. Patients get answers the same day.\nSofia: Two problems. We're opening two new clinics in December, so twelve new people need training.\nJonas: I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.\nSofia: Perfect. The second thing is reporting. I need a monthly export for the board and it only exports to PDF.\nJonas: I'll log a feature request for a CSV export and tell you what the product team says.\nSofia: Also the single sign-on sometimes logs people out.\nJonas: Emma from our support team will fix the single sign-on bug this week.\nSofia: Thanks. Same time next quarter?\nJonas: Yes, I'll send an invite.",
+   "team": "Customer Success",
+   "linearTeam": "CS",
+   "routedBy": "folder",
+   "routeReason": "Granola folder \"Customer Success\"",
+   "summary": "Jonas (Northwind SaaS) checked in with Sofia from Tessera Dental Group after three months. Adoption is good. Twelve new staff at two new clinics need training before December, the board report needs a CSV export, and single sign-on sometimes logs people out.",
+   "tasks": [
+    {
+     "title": "Run a training session for Tessera's 12 new clinic staff",
+     "description": "Two new clinics open in December. Training before 18 November.",
+     "type": "onboarding",
+     "owner_name": "Jonas Weber",
+     "owner_email": "jonas@northwind.example",
+     "due_date": "2026-11-18",
+     "priority": "high",
+     "evidence": "I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.",
+     "confidence": 0.94,
+     "flagged": false,
+     "assigned": "jonas@northwind.example"
+    },
+    {
+     "title": "Log a feature request for CSV export of monthly reports",
+     "description": "Sofia needs a monthly board report; today it only exports to PDF.",
+     "type": "feedback",
+     "owner_name": "Jonas Weber",
+     "owner_email": "jonas@northwind.example",
+     "due_date": null,
+     "priority": "medium",
+     "evidence": "I'll log a feature request for a CSV export and tell you what the product team says.",
+     "confidence": 0.9,
+     "flagged": false,
+     "assigned": "jonas@northwind.example"
+    },
+    {
+     "title": "Fix the single sign-on logout bug for Tessera",
+     "description": "Emma was named, but she wasn't on the call, so the task is left unassigned.",
+     "type": "issue",
+     "owner_name": "Emma",
+     "owner_email": "emma@northwind.example",
+     "due_date": "2026-11-06",
+     "priority": "high",
+     "evidence": "Emma from our support team will fix the single sign-on bug this week.",
+     "confidence": 0.8,
+     "flagged": false,
+     "assigned": null
+    },
+    {
+     "title": "Send invite for next quarter's check-in",
+     "description": "",
+     "type": "next_step",
+     "owner_name": "Jonas Weber",
+     "owner_email": "jonas@northwind.example",
+     "due_date": null,
+     "priority": "low",
+     "evidence": "Yes, I'll send an invite.",
+     "confidence": 0.88,
+     "flagged": false,
+     "assigned": "jonas@northwind.example"
+    }
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Run a training session for Tessera's 12 new clinic staff",
+      "body": "Two new clinics open in December. Training before 18 November.\n\nFrom the call: \"I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.\"\n\nCall: Northwind SaaS × Tessera Dental Group: quarterly check-in (2026-11-04)\nAgreed by: Jonas Weber\nConfidence: 94%\n\nCreated by Minuta · minuta-ref:example-crm-checkin",
+      "ownerEmail": "jonas@northwind.example",
+      "ownerName": "Jonas Weber",
+      "dueDate": "2026-11-18",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.",
+      "confidence": 0.94,
+      "flagged": false
+     },
+     {
+      "subject": "Log a feature request for CSV export of monthly reports",
+      "body": "Sofia needs a monthly board report; today it only exports to PDF.\n\nFrom the call: \"I'll log a feature request for a CSV export and tell you what the product team says.\"\n\nCall: Northwind SaaS × Tessera Dental Group: quarterly check-in (2026-11-04)\nAgreed by: Jonas Weber\nConfidence: 90%\n\nCreated by Minuta · minuta-ref:example-crm-checkin",
+      "ownerEmail": "jonas@northwind.example",
+      "ownerName": "Jonas Weber",
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll log a feature request for a CSV export and tell you what the product team says.",
+      "confidence": 0.9,
+      "flagged": false
+     },
+     {
+      "subject": "Fix the single sign-on logout bug for Tessera",
+      "body": "Emma was named, but she wasn't on the call, so the task is left unassigned.\n\nFrom the call: \"Emma from our support team will fix the single sign-on bug this week.\"\n\nCall: Northwind SaaS × Tessera Dental Group: quarterly check-in (2026-11-04)\nAgreed by: Emma\nConfidence: 80%\n\nCreated by Minuta · minuta-ref:example-crm-checkin",
+      "ownerEmail": null,
+      "ownerName": null,
+      "dueDate": "2026-11-06",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Emma from our support team will fix the single sign-on bug this week.",
+      "confidence": 0.8,
+      "flagged": false
+     },
+     {
+      "subject": "Send invite for next quarter's check-in",
+      "body": "From the call: \"Yes, I'll send an invite.\"\n\nCall: Northwind SaaS × Tessera Dental Group: quarterly check-in (2026-11-04)\nAgreed by: Jonas Weber\nConfidence: 88%\n\nCreated by Minuta · minuta-ref:example-crm-checkin",
+      "ownerEmail": "jonas@northwind.example",
+      "ownerName": "Jonas Weber",
+      "dueDate": null,
+      "priority": "LOW",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "Yes, I'll send an invite.",
+      "confidence": 0.88,
+      "flagged": false
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Sofia Lang <sofia@tesseradental.example>"
+     ],
+     "subject": "Tessera × Northwind: check-in recap",
+     "body": "Hi Sofia,\n\nThanks for the check-in today. What we agreed:\n\n- I'll run a training session for the new clinic staff before 18 November.\n- I'll log a feature request for a CSV export and let you know what the product team says.\n- Our support team is looking at the single sign-on logouts.\n- I'll send an invite for the same time next quarter.\n\nBest,\nJonas",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
+  },
+  {
+   "id": "crm-renewal",
+   "title": "Northwind SaaS × Bluefin Travel: renewal call",
+   "date": "2026-11-05",
+   "folder": "Client calls",
+   "attendees": [
+    {
+     "name": "Inês Duarte",
+     "email": "ines@northwind.example"
+    },
+    {
+     "name": "Tom Okoro",
+     "email": "tom@bluefintravel.example"
+    },
+    {
+     "name": "Lucía Ferrer",
+     "email": "lucia@bluefintravel.example"
+    }
+   ],
+   "transcript": "Inês: The renewal is on the 1st of December. You're on forty seats today.\nTom: We'd like to go down to thirty-five. Five agents moved to the sales team.\nLucía: And if we sign for two years, we'd expect something like eight percent off.\nInês: I can't promise eight percent today. Anything above five percent needs approval on our side. Let me see what's possible.\nLucía: Understood. We also need your security questionnaire updated for our audit, by the 20th.\nInês: I'll send the updated security questionnaire by the 20th of November.\nInês: And I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.\nTom: Great, that gives us time before the end of the month.",
+   "team": "Account Management",
+   "linearTeam": "AM",
+   "routedBy": "folder",
+   "routeReason": "Granola folder \"Client calls\"",
+   "summary": "Inês (Northwind SaaS) discussed the 1 December renewal with Tom and Lucía from Bluefin Travel. They want to go from 40 to 35 seats and asked for about 8% off for a two-year term; anything above 5% needs internal approval. Their audit needs an updated security questionnaire by 20 November.",
+   "tasks": [
+    {
+     "title": "Send Bluefin renewal quote for 35 seats, 1-year and 2-year options",
+     "description": "Renewal date 1 December. Down from 40 seats.",
+     "type": "renewal",
+     "owner_name": "Inês Duarte",
+     "owner_email": "ines@northwind.example",
+     "due_date": "2026-11-09",
+     "priority": "high",
+     "evidence": "I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.",
+     "confidence": 0.95,
+     "flagged": false,
+     "assigned": "ines@northwind.example"
+    },
+    {
+     "title": "Send updated security questionnaire to Bluefin for their audit",
+     "description": "",
+     "type": "send_material",
+     "owner_name": "Inês Duarte",
+     "owner_email": "ines@northwind.example",
+     "due_date": "2026-11-20",
+     "priority": "high",
+     "evidence": "I'll send the updated security questionnaire by the 20th of November.",
+     "confidence": 0.93,
+     "flagged": false,
+     "assigned": "ines@northwind.example"
+    },
+    {
+     "title": "Get approval for a two-year discount above 5%",
+     "description": "Lucía asked for about 8%. Nothing was promised; it isn't clear who asks for approval.",
+     "type": "risk",
+     "owner_name": "Inês Duarte",
+     "owner_email": "ines@northwind.example",
+     "due_date": null,
+     "priority": "medium",
+     "evidence": "Anything above five percent needs approval on our side. Let me see what's possible.",
+     "confidence": 0.55,
+     "flagged": true,
+     "assigned": null
+    }
+   ],
+   "crm": {
+    "mode": "demo",
+    "tasks": [
+     {
+      "subject": "Send Bluefin renewal quote for 35 seats, 1-year and 2-year options",
+      "body": "Renewal date 1 December. Down from 40 seats.\n\nFrom the call: \"I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.\"\n\nCall: Northwind SaaS × Bluefin Travel: renewal call (2026-11-05)\nAgreed by: Inês Duarte\nConfidence: 95%\n\nCreated by Minuta · minuta-ref:example-crm-renewal",
+      "ownerEmail": "ines@northwind.example",
+      "ownerName": "Inês Duarte",
+      "dueDate": "2026-11-09",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.",
+      "confidence": 0.95,
+      "flagged": false
+     },
+     {
+      "subject": "Send updated security questionnaire to Bluefin for their audit",
+      "body": "From the call: \"I'll send the updated security questionnaire by the 20th of November.\"\n\nCall: Northwind SaaS × Bluefin Travel: renewal call (2026-11-05)\nAgreed by: Inês Duarte\nConfidence: 93%\n\nCreated by Minuta · minuta-ref:example-crm-renewal",
+      "ownerEmail": "ines@northwind.example",
+      "ownerName": "Inês Duarte",
+      "dueDate": "2026-11-20",
+      "priority": "HIGH",
+      "status": "NOT_STARTED",
+      "queue": null,
+      "evidence": "I'll send the updated security questionnaire by the 20th of November.",
+      "confidence": 0.93,
+      "flagged": false
+     },
+     {
+      "subject": "Get approval for a two-year discount above 5%",
+      "body": "NEEDS REVIEW: Minuta was not fully sure about this task. Check the owner and date before starting.\n\nLucía asked for about 8%. Nothing was promised; it isn't clear who asks for approval.\n\nFrom the call: \"Anything above five percent needs approval on our side. Let me see what's possible.\"\n\nCall: Northwind SaaS × Bluefin Travel: renewal call (2026-11-05)\nAgreed by: Inês Duarte\nConfidence: 55%\n\nCreated by Minuta · minuta-ref:example-crm-renewal",
+      "ownerEmail": null,
+      "ownerName": null,
+      "dueDate": null,
+      "priority": "MEDIUM",
+      "status": "NOT_STARTED",
+      "queue": "Needs review",
+      "evidence": "Anything above five percent needs approval on our side. Let me see what's possible.",
+      "confidence": 0.55,
+      "flagged": true
+     }
+    ],
+    "followUp": {
+     "to": [
+      "Tom Okoro <tom@bluefintravel.example>",
+      "Lucía Ferrer <lucia@bluefintravel.example>"
+     ],
+     "subject": "Bluefin Travel renewal: next steps",
+     "body": "Hi Tom and Lucía,\n\nThanks for the call today. To recap:\n\n- I'll send a renewal quote for 35 seats with one-year and two-year options by Monday.\n- I'll send the updated security questionnaire by 20 November.\n- On the two-year discount, I'll come back to you once I've checked what's possible on our side.\n\nBest,\nInês",
+     "status": "draft",
+     "sent": false,
+     "note": "Draft only. Minuta never sends email. Copy it into your email or CRM, edit it and send it yourself."
+    }
+   }
   }
  ]
 };

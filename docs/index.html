@@ -121,6 +121,17 @@ a{color:inherit}
 .bar{width:80px;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--ink)}
 .hint{padding:0 18px 14px;font-size:12.5px;color:var(--muted)}
+.outsw{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:12px;background:var(--surface)}
+.outsw button{border:0;background:none;padding:8px 14px;font:500 14px var(--f-display);color:var(--muted);cursor:pointer}
+.outsw button small{font:500 11px var(--f-mono);margin-left:4px}
+.outsw button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.demo-mode{margin:4px 18px 10px;padding:8px 12px;border-radius:8px;background:var(--mark);color:var(--mark-ink);font-size:13px}
+.draft{margin:8px 18px 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.draft .dh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:8px 12px;background:var(--soft,var(--surface));border-bottom:1px solid var(--line);font-size:13px}
+.draft .dh b{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--rec)}
+.draft dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;margin:0;padding:8px 12px;font-size:13px;border-bottom:1px solid var(--line)}
+.draft dt{color:var(--muted)}.draft dd{margin:0;word-break:break-word}
+.draft pre{margin:0;padding:10px 12px;white-space:pre-wrap;word-break:break-word;font-family:var(--f-read);font-size:14px;line-height:1.5}
 
 .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11.5px;padding:2px 8px;border-radius:5px;color:var(--tc);border:1px solid color-mix(in srgb,var(--tc) 40%,transparent);background:color-mix(in srgb,var(--tc) 10%,transparent);white-space:nowrap}
 
@@ -181,6 +192,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
     <h1>Every call ends with <em>next steps</em>. Minuta makes sure they happen.</h1>
     <div>
       <p>Minuta takes a recorded call from Granola (a call-notes app), has Claude pull out what was agreed using your team's playbook, and creates the tasks in that team's Linear (a task tracker). Built for sales, account management, marketing, customer success and internal teams.</p>
+      <p><b>Who it's for:</b> sales, account management, customer success and marketing teams who lose next steps between the call and the task list.</p>
       <div class="byline">Portfolio project by Alberto Machado Domínguez · Example calls are fictional</div>
     </div>
   </section>
@@ -189,13 +201,17 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
     <div class="step" role="listitem"><span class="n">01 · RECORD</span><h3>The call is recorded</h3><p>Granola takes notes and a transcript. You save the note to a team folder.</p><span class="tool">Granola API or Zapier</span></div>
     <div class="step" role="listitem"><span class="n">02 · ROUTE</span><h3>Minuta picks the team</h3><p>The folder decides the team. No folder? Claude reads the call and chooses.</p><span class="tool">Minuta</span></div>
     <div class="step" role="listitem"><span class="n">03 · EXTRACT</span><h3>Claude finds the work</h3><p>Using that team's playbook: owners, deadlines, priority and the quote that proves it.</p><span class="tool">Claude API</span></div>
-    <div class="step" role="listitem"><span class="n">04 · ASSIGN</span><h3>Tasks land in Linear</h3><p>One issue per task, in the right team. Unsure tasks are flagged for review.</p><span class="tool">Linear API</span></div>
+    <div class="step" role="listitem"><span class="n">04 · ASSIGN</span><h3>Tasks land in Linear or a CRM</h3><p>One issue per task in the right team, or CRM tasks plus a follow-up email draft. Unsure tasks are flagged for review.</p><span class="tool">Linear API</span></div>
   </div>
 
   <section class="sec" id="examples">
     <div class="sec-h">
-      <h2>Five calls, five teams</h2>
-      <p>Pick a call. Select a task to see the line in the transcript it came from.</p>
+      <h2>Eight calls, five teams, two outputs</h2>
+      <p>Pick a call. Select a task to see the line in the transcript it came from. Switch the output to see the same call as CRM tasks and a follow-up email draft.</p>
+    </div>
+    <div class="outsw" role="group" aria-label="Where the tasks go">
+      <button type="button" data-out="linear" aria-pressed="true">Issue tracker <small>Linear</small></button>
+      <button type="button" data-out="crm" aria-pressed="false">CRM <small>HubSpot-style</small></button>
     </div>
     <div class="picker" role="tablist" aria-label="Example calls" id="picker"></div>
     <div class="stage">
@@ -206,10 +222,11 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
         <div class="transcript" id="transcript" tabindex="0" aria-label="Transcript"></div>
       </div>
       <div class="panel">
-        <div class="panel-h"><span class="lab">What Minuta creates in Linear</span><span class="idk" id="count"></span></div>
+        <div class="panel-h"><span class="lab" id="out-lab">What Minuta creates in Linear</span><span class="idk" id="count"></span></div>
         <div class="summary"><span class="lab">Summary</span><span id="summary"></span></div>
         <ul class="issues" id="issues"></ul>
-        <div class="hint">Example output. Owners are only assigned if they were on the call. Tasks under 60% confidence are flagged and left unassigned.</div>
+        <div id="draft"></div>
+        <div class="hint" id="out-hint">Example output. Owners are only assigned if they were on the call. Tasks under 60% confidence are flagged and left unassigned.</div>
       </div>
     </div>
   </section>
@@ -261,7 +278,8 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display
 
   <footer>
     <span>Minuta · MIT licence · Alberto Machado Domínguez · <a href="mailto:albertomachdom@gmail.com">albertomachdom@gmail.com</a> · <a href="https://www.linkedin.com/in/alberto-machado-dom%C3%ADnguez-708290251/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-    <span>Granola, Claude, Linear and Zapier are trademarks of their owners. Minuta is an independent project.</span>
+    <span>Part of a suite: <a href="https://amachadod.github.io/ai-front-desk/">see how it fits together</a> · The companies, people and calls in the demo are fictional.</span>
+    <span>Granola, Claude, Linear, HubSpot and Zapier are trademarks of their owners. Minuta is an independent project.</span>
   </footer>
 </div>
 
@@ -285,9 +303,9 @@ function priIcon(p){
 }
 
 // Example picker
-let cur = 0, open = -1;
+let cur = 0, open = -1, out = "linear";
 $("picker").innerHTML = D.examples.map((e, i) =>
-  `<button role="tab" id="ex-${e.id}" aria-selected="${i===0}" style="${tc(e.linearTeam)}" data-i="${i}"><span class="k">${e.linearTeam}</span>${esc(e.team)}</button>`).join("");
+  `<button role="tab" id="ex-${e.id}" aria-selected="${i===0}" style="${tc(e.linearTeam)}" data-i="${i}"><span class="k">${e.linearTeam}</span>${esc(e.team)}${e.id.startsWith("crm-") ? ` · ${esc(e.title.split("×")[1].split(":")[0].trim())}` : ""}</button>`).join("");
 $("picker").addEventListener("click", (ev) => { const b = ev.target.closest("button"); if (b) show(+b.dataset.i); });
 
 function show(i){
@@ -305,6 +323,10 @@ function show(i){
   }).join("");
   $("transcript").scrollTop = 0;
   $("summary").textContent = e.summary;
+  if (out === "crm") return showCrm(e);
+  $("out-lab").textContent = "What Minuta creates in Linear";
+  $("out-hint").textContent = "Example output. Owners are only assigned if they were on the call. Tasks under 60% confidence are flagged and left unassigned.";
+  $("draft").innerHTML = "";
   $("count").textContent = `${e.tasks.length} issues · ${e.linearTeam}`;
   $("issues").innerHTML = e.tasks.map((t, k) => {
     const who = t.flagged ? null : t.owner_name;
@@ -328,6 +350,32 @@ function show(i){
   highlight(null);
 }
 
+// CRM view: the same tasks as CRM tasks, plus the follow-up email draft.
+const CRM_PRI = { HIGH:"high", MEDIUM:"medium", LOW:"low" };
+function showCrm(e){
+  $("out-lab").textContent = "What Minuta drafts for the CRM";
+  $("out-hint").textContent = "Example output. Same rules as Linear: owners only if they were on the call, unsure tasks go to a Needs review queue unassigned.";
+  $("count").textContent = `${e.crm.tasks.length} CRM tasks`;
+  $("issues").innerHTML = `<li class="demo-mode" role="note">Demo mode. Connecting to a real HubSpot account needs an API key and is not included in the demo.</li>` + e.crm.tasks.map((t, k) => `
+    <li class="issue" role="button" tabindex="0" aria-pressed="false" data-k="${k}" style="${tc(e.linearTeam)}">
+      <span class="pri" title="${t.priority} priority">${priIcon(CRM_PRI[t.priority])}</span>
+      <span class="t">${esc(t.subject)}</span>
+      <span class="row">
+        <span class="idk">Task · ${t.status.replace("_", " ").toLowerCase()}</span>
+        <span class="pill"><span class="av ${t.ownerName ? "" : "none"}">${t.ownerName ? initials(t.ownerName) : ""}</span>${t.ownerName ? esc(t.ownerName) : "No owner"}</span>
+        ${t.dueDate ? `<span class="pill">Due ${fmtDate(t.dueDate)}</span>` : ""}
+        ${t.queue ? `<span class="pill flag">${esc(t.queue)}</span>` : ""}
+      </span>
+      <div class="detail"><blockquote>${esc(t.evidence)}</blockquote>
+        <div class="conf">Confidence <span class="bar"><i style="width:${Math.round(t.confidence*100)}%"></i></span>${Math.round(t.confidence*100)}%</div></div>
+    </li>`).join("");
+  const f = e.crm.followUp;
+  $("draft").innerHTML = f ? `<div class="draft" aria-label="Follow-up email draft">
+      <div class="dh"><span>Follow-up email</span><b>Draft · never sent</b></div>
+      <dl><dt>To</dt><dd>${f.to.map(esc).join(", ")}</dd><dt>Subject</dt><dd>${esc(f.subject)}</dd></dl>
+      <pre>${esc(f.body)}</pre></div>` : `<p class="hint" style="padding-top:8px">Internal meeting: nobody from another company was on the call, so there's no email draft.</p>`;
+  highlight(null);
+}
 // Find the transcript lines a task's evidence quote came from.
 function linesFor(t){
   const lines = D.examples[cur].transcript.split("\n").map((l) => l.toLowerCase());
@@ -355,9 +403,15 @@ function highlight(t){
 function toggle(li){
   const k = +li.dataset.k;
   open = open === k ? -1 : k;
-  [...$("issues").children].forEach((el) => el.setAttribute("aria-pressed", +el.dataset.k === open));
-  highlight(open >= 0 ? D.examples[cur].tasks[open] : null);
+  [...$("issues").querySelectorAll(".issue")].forEach((el) => el.setAttribute("aria-pressed", +el.dataset.k === open));
+  const list = out === "crm" ? D.examples[cur].crm.tasks.map((t) => ({ evidence: t.evidence })) : D.examples[cur].tasks;
+  highlight(open >= 0 ? list[open] : null);
 }
+document.querySelectorAll(".outsw button").forEach((b) => b.addEventListener("click", () => {
+  out = b.dataset.out;
+  document.querySelectorAll(".outsw button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+  show(cur);
+}));
 $("issues").addEventListener("click", (ev) => { const li = ev.target.closest(".issue"); if (li) toggle(li); });
 $("issues").addEventListener("keydown", (ev) => {
   if ((ev.key === "Enter" || ev.key === " ") && ev.target.classList.contains("issue")) { ev.preventDefault(); toggle(ev.target); }
