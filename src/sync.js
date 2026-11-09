@@ -6,6 +6,9 @@ import { runPipeline } from "./pipeline.js";
 import { apiNoteToPayload } from "./granola-api.js";
 
 export async function syncGranola({ config, playbooks, granola, linear, deps = {}, now = new Date(), log = console.log }) {
+  // The hourly sync avoids duplicates by checking Linear for each note. It can't do that in HubSpot yet,
+  // so CRM mode only runs here as a dry run. Use CRM mode with Zapier (one run per note) instead.
+  if (config.output === "crm" && !config.dryRun) throw new Error("The hourly sync can't check HubSpot for duplicates yet. Use CRM mode with Zapier, or set DRY_RUN=true.");
   const since = new Date(now.getTime() - config.lookbackHours * 3600_000).toISOString();
   const settled = now.getTime() - config.settleMinutes * 60_000;
 

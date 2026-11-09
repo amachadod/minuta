@@ -1,0 +1,58 @@
+{
+ "_note": "Example output written for this fictional call, in the shape Claude returns. Not a live AI response.",
+ "route": {
+  "playbook_id": "sales",
+  "reason": "Discovery call with a prospect"
+ },
+ "summary": "Priya (Northwind SaaS) ran discovery with Hanna and Marc from Alpine Outdoor Co. Twelve agents share one Gmail inbox and get about 3,000 emails a week at peak; they want a first reply within four hours. Budget is decided in January, with a go-live goal before the March spring sale.",
+ "follow_up": {
+  "subject": "Alpine Outdoor × Northwind: next steps from today",
+  "body": "Hi Hanna and Marc,\n\nThanks for the time today. A quick recap of what we agreed:\n\n- I'll send pricing for twelve seats and the Shopify integration one-pager by Thursday.\n- I'll book a demo with our solutions engineer for next week, using sample tickets like yours.\n- Marc will share last November's ticket volumes so we can size it.\n\nYou mentioned a first reply within four hours at peak and going live before the spring sale in March. I'll keep both in mind for the proposal.\n\nBest,\nPriya"
+ },
+ "tasks": [
+  {
+   "title": "Send pricing for 12 seats and the Shopify integration one-pager to Alpine Outdoor",
+   "description": "Twelve agents, Shopify store, about 3,000 emails a week at peak.",
+   "type": "send_material",
+   "owner_name": "Priya Nair",
+   "owner_email": "priya@northwind.example",
+   "due_date": "2026-11-05",
+   "priority": "high",
+   "evidence": "I'll send you pricing for twelve seats and the Shopify integration one-pager by Thursday.",
+   "confidence": 0.95
+  },
+  {
+   "title": "Book a demo with a solutions engineer using sample tickets like Alpine's",
+   "description": "Hanna wants to see it with their kind of tickets (order status questions).",
+   "type": "next_step",
+   "owner_name": "Priya Nair",
+   "owner_email": "priya@northwind.example",
+   "due_date": "2026-11-13",
+   "priority": "high",
+   "evidence": "I'll book a demo with our solutions engineer for next week, using sample tickets like yours.",
+   "confidence": 0.9
+  },
+  {
+   "title": "Follow up with Marc for last November's ticket volumes",
+   "description": "Marc offered to export them so the proposal can be sized.",
+   "type": "next_step",
+   "owner_name": "Priya Nair",
+   "owner_email": "priya@northwind.example",
+   "due_date": null,
+   "priority": "medium",
+   "evidence": "I can export last November's ticket volumes so you can size it.",
+   "confidence": 0.78
+  },
+  {
+   "title": "Find out where customer data is stored for Alpine's legal team",
+   "description": "Raised in passing. Nobody clearly agreed to own it.",
+   "type": "objection",
+   "owner_name": null,
+   "owner_email": null,
+   "due_date": null,
+   "priority": "medium",
+   "evidence": "someone will probably ask where the data is stored. Legal might care. / Good point, we can look into that.",
+   "confidence": 0.5
+  }
+ ]
+}

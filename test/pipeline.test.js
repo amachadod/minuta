@@ -76,7 +76,7 @@ test("low-confidence tasks and review mode are flagged and left unassigned", () 
 });
 
 test("every example runs end to end and lands on the right team", async () => {
-  const expected = { "sales-fjord": "Sales", "am-casaverde": "Account Management", "mkt-kettle": "Marketing", "cs-sunpeak": "Customer Success", "ops-atlas": "Operations" };
+  const expected = { "sales-fjord": "Sales", "am-casaverde": "Account Management", "mkt-kettle": "Marketing", "cs-sunpeak": "Customer Success", "ops-atlas": "Operations", "crm-discovery": "Sales", "crm-checkin": "Customer Success", "crm-renewal": "Account Management" };
   for (const ex of examples) {
     const r = await runPipeline(ex.note, {
       config, playbooks,

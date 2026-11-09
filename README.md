@@ -6,7 +6,11 @@ Granola (a call-notes app) records the call. Minuta works out which team it belo
 
 It works for any team that has calls and a task list: **sales, account management, marketing, customer success and internal teams**. Adding a new team takes one plain-English file.
 
-👉 **[Try the live demo](https://amachadod.github.io/minuta/)**: five example calls from five teams, and the Linear tasks Minuta creates from each.
+Tasks can also go to a **CRM** (customer relationship management system, like HubSpot) instead: CRM tasks with owners, due dates and quotes, plus a **follow-up email draft** for each call with another company. Minuta never sends the email.
+
+**Who it's for:** sales, account management, customer success and marketing teams who lose next steps between the call and the task list.
+
+👉 **[Try the live demo](https://amachadod.github.io/minuta/)**: eight example calls from five teams. Switch between **Issue tracker** (the Linear issues) and **CRM** (HubSpot-style tasks and a follow-up email draft).
 
 *Portfolio project by Alberto Machado Domínguez. The companies and calls in the examples are fictional.*
 
@@ -37,6 +41,24 @@ It works for any team that has calls and a task list: **sales, account managemen
 > > I'll put together a payback model for Henrik based on your 3% error rate and forty pickers. I can have that to you by Friday.
 >
 > **Call:** Northwind × Fjord Logistics: discovery call · 2026-10-26 · **Confidence:** 96%
+
+## CRM output (HubSpot-style)
+
+Set `MINUTA_OUTPUT=crm` and each call becomes:
+
+1. **One CRM task per agreed action**, with a subject, the owner (only if they were on the call), a due date, a priority and a body that quotes the transcript. Unsure tasks go to a **Needs review** queue with no owner, exactly like in Linear.
+2. **One follow-up email draft** to the people from the other company on the call: a short recap of what each side agreed. Claude writes it; if it doesn't, Minuta builds a plain recap from the tasks. Internal meetings get no draft. **The draft is never sent.** Minuta has no code that sends email, and a test checks that.
+
+```
+Subject:  Send Bluefin renewal quote for 35 seats, 1-year and 2-year options
+Owner:    Inês Duarte · Due 9 Nov · Priority HIGH · Not started
+Body:     From the call: "I'll send a renewal quote for thirty-five seats with one-year
+          and two-year options by Monday."  Call: Northwind SaaS × Bluefin Travel: renewal call
+```
+
+**Demo mode is the default.** Without a HubSpot token, CRM mode plans and shows the tasks and the draft and creates nothing. With `HUBSPOT_TOKEN` (a HubSpot private app token that can create tasks and read owners), Minuta creates the tasks through HubSpot's CRM API. That connection is written against HubSpot's documented API but **has not been tested against a live HubSpot account**: try it on a test portal with `DRY_RUN=true` first. CRM mode works with Zapier (one run per note). The hourly sync only supports it as a dry run, because it can't yet check HubSpot for tasks it already created.
+
+The three CRM sample calls are a sales discovery call, a customer success check-in and an account renewal, all with Northwind SaaS, a fictional software company.
 
 ## Team playbooks
 
@@ -84,7 +106,7 @@ You need [Node.js 20+](https://nodejs.org). There are no dependencies to install
 git clone https://github.com/amachadod/minuta.git
 cd minuta
 npm run demo   # runs the 5 example calls through the pipeline (no API keys, nothing sent)
-npm test       # 19 tests: routing, validation, safeguards, Linear mapping, webhook auth, Granola sync
+npm test       # 24 tests: routing, validation, safeguards, Linear mapping, CRM tasks and drafts, webhook auth, Granola sync
 ```
 
 ## Which setup is right for you?
@@ -160,6 +182,7 @@ src/
   playbooks.js   loads playbooks and matches folders to teams
   claude.js      routing + task extraction with Claude (structured tool output), and validation
   linear.js      safeguards, issue formatting, Linear GraphQL calls
+  crm.js         CRM output: tasks, follow-up email drafts (never sent), HubSpot task mapping
   pipeline.js    the whole flow
   webhook.js     auth + request handling
 .github/workflows/       hourly GitHub Actions run for direct mode
@@ -167,33 +190,36 @@ scripts/sync-granola.js  direct mode entry point (npm run sync)
 api/granola-webhook.js   Vercel function for Zapier mode
 server.js                local server (npm start)
 playbooks/               one Markdown file per team
-examples/                5 example calls with example Claude output
+examples/                8 example calls with example Claude output (3 for the CRM mode)
 docs/                    the demo page (GitHub Pages)
 test/                    node:test suite
 ```
 
 ## Privacy and consent
 
-Recording a call usually requires telling everyone on it, and in the EU under GDPR you need a lawful basis to process their data. Tell participants that the call is recorded and summarised. Minuta stores nothing: the transcript goes to Claude for extraction and the resulting tasks go to Linear. Check that your company allows sending call data to both services.
+Recording a call usually requires telling everyone on it, and in the EU under GDPR you need a lawful basis to process their data. Tell participants that the call is recorded and summarised. Minuta stores nothing: the transcript goes to Claude for extraction and the resulting tasks go to Linear (or your CRM). Check that your company allows sending call data to both services.
 
 ## Limitations
 
 - The demo page shows example output written for fictional calls. It does not call Claude live, because a public page can't hold an API key.
 - Direct mode checks for new notes every hour, so tasks can take up to an hour to appear. Use Zapier if you need them instantly.
 - Granola's Zapier fields can change. If something is missing, `src/granola.js` accepts several field names and gives a clear error.
+- The HubSpot connection is not tested against a live account, and CRM mode in the hourly sync is dry-run only (no duplicate check in HubSpot yet).
 - Tasks are only as good as the call: if nobody says who will do something, Minuta leaves it unassigned rather than guessing.
 
 ## Tech
 
-Node.js 20+, no dependencies. Claude Messages API with forced tool use for structured output, Granola API, Linear GraphQL API, GitHub Actions, Zapier webhooks, GitHub Pages for the demo.
+Node.js 20+, no dependencies. Claude Messages API with forced tool use for structured output, Granola API, Linear GraphQL API, HubSpot CRM API (tasks), GitHub Actions, Zapier webhooks, GitHub Pages for the demo.
 
 ## About me
 
 Alberto Machado Domínguez: advertising and PR graduate (Universidad Complutense de Madrid) with experience in account management, paid media and content. Based in Lisbon. I build tools like this to remove the busywork between client conversations and delivery. See also [Plano](https://github.com/amachadod/plano), a paid media planner.
 
+See how it fits together: [https://amachadod.github.io/ai-front-desk/](https://amachadod.github.io/ai-front-desk/)
+
 ## License
 
-MIT. Granola, Claude, Linear and Zapier are trademarks of their respective owners. Minuta is an independent project and is not affiliated with them.
+MIT. Granola, Claude, Linear, HubSpot and Zapier are trademarks of their respective owners. Minuta is an independent project and is not affiliated with them.
 
 ---
 Built by Alberto Machado Domínguez · [albertomachdom@gmail.com](mailto:albertomachdom@gmail.com) · [LinkedIn](https://www.linkedin.com/in/alberto-machado-dom%C3%ADnguez-708290251/)

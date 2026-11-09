@@ -1,0 +1,47 @@
+{
+ "_note": "Example output written for this fictional call, in the shape Claude returns. Not a live AI response.",
+ "route": {
+  "playbook_id": "account-management",
+  "reason": "Renewal discussion with an existing client"
+ },
+ "summary": "Inês (Northwind SaaS) discussed the 1 December renewal with Tom and Lucía from Bluefin Travel. They want to go from 40 to 35 seats and asked for about 8% off for a two-year term; anything above 5% needs internal approval. Their audit needs an updated security questionnaire by 20 November.",
+ "follow_up": {
+  "subject": "Bluefin Travel renewal: next steps",
+  "body": "Hi Tom and Lucía,\n\nThanks for the call today. To recap:\n\n- I'll send a renewal quote for 35 seats with one-year and two-year options by Monday.\n- I'll send the updated security questionnaire by 20 November.\n- On the two-year discount, I'll come back to you once I've checked what's possible on our side.\n\nBest,\nInês"
+ },
+ "tasks": [
+  {
+   "title": "Send Bluefin renewal quote for 35 seats, 1-year and 2-year options",
+   "description": "Renewal date 1 December. Down from 40 seats.",
+   "type": "renewal",
+   "owner_name": "Inês Duarte",
+   "owner_email": "ines@northwind.example",
+   "due_date": "2026-11-09",
+   "priority": "high",
+   "evidence": "I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.",
+   "confidence": 0.95
+  },
+  {
+   "title": "Send updated security questionnaire to Bluefin for their audit",
+   "description": "",
+   "type": "send_material",
+   "owner_name": "Inês Duarte",
+   "owner_email": "ines@northwind.example",
+   "due_date": "2026-11-20",
+   "priority": "high",
+   "evidence": "I'll send the updated security questionnaire by the 20th of November.",
+   "confidence": 0.93
+  },
+  {
+   "title": "Get approval for a two-year discount above 5%",
+   "description": "Lucía asked for about 8%. Nothing was promised; it isn't clear who asks for approval.",
+   "type": "risk",
+   "owner_name": "Inês Duarte",
+   "owner_email": "ines@northwind.example",
+   "due_date": null,
+   "priority": "medium",
+   "evidence": "Anything above five percent needs approval on our side. Let me see what's possible.",
+   "confidence": 0.55
+  }
+ ]
+}

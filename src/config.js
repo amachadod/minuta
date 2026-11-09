@@ -17,6 +17,9 @@ export function getConfig(env = process.env) {
     anthropicKey: env.ANTHROPIC_API_KEY || "",
     model: env.CLAUDE_MODEL || "claude-sonnet-5-5",
     linearKey: env.LINEAR_API_KEY || "",
+    // Where tasks go: "linear" (an issue tracker) or "crm" (HubSpot-style tasks plus a follow-up email draft).
+    output: env.MINUTA_OUTPUT === "crm" ? "crm" : "linear",
+    hubspotToken: env.HUBSPOT_TOKEN || "",
     webhookSecret: env.MINUTA_WEBHOOK_SECRET || "",
     reviewMode: env.REVIEW_MODE === "true",
     minConfidence: Number(env.MIN_CONFIDENCE ?? 0.6),

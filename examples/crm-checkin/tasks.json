@@ -1,0 +1,58 @@
+{
+ "_note": "Example output written for this fictional call, in the shape Claude returns. Not a live AI response.",
+ "route": {
+  "playbook_id": "customer-success",
+  "reason": "Quarterly check-in with an existing customer"
+ },
+ "summary": "Jonas (Northwind SaaS) checked in with Sofia from Tessera Dental Group after three months. Adoption is good. Twelve new staff at two new clinics need training before December, the board report needs a CSV export, and single sign-on sometimes logs people out.",
+ "follow_up": {
+  "subject": "Tessera × Northwind: check-in recap",
+  "body": "Hi Sofia,\n\nThanks for the check-in today. What we agreed:\n\n- I'll run a training session for the new clinic staff before 18 November.\n- I'll log a feature request for a CSV export and let you know what the product team says.\n- Our support team is looking at the single sign-on logouts.\n- I'll send an invite for the same time next quarter.\n\nBest,\nJonas"
+ },
+ "tasks": [
+  {
+   "title": "Run a training session for Tessera's 12 new clinic staff",
+   "description": "Two new clinics open in December. Training before 18 November.",
+   "type": "onboarding",
+   "owner_name": "Jonas Weber",
+   "owner_email": "jonas@northwind.example",
+   "due_date": "2026-11-18",
+   "priority": "high",
+   "evidence": "I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.",
+   "confidence": 0.94
+  },
+  {
+   "title": "Log a feature request for CSV export of monthly reports",
+   "description": "Sofia needs a monthly board report; today it only exports to PDF.",
+   "type": "feedback",
+   "owner_name": "Jonas Weber",
+   "owner_email": "jonas@northwind.example",
+   "due_date": null,
+   "priority": "medium",
+   "evidence": "I'll log a feature request for a CSV export and tell you what the product team says.",
+   "confidence": 0.9
+  },
+  {
+   "title": "Fix the single sign-on logout bug for Tessera",
+   "description": "Emma was named, but she wasn't on the call, so the task is left unassigned.",
+   "type": "issue",
+   "owner_name": "Emma",
+   "owner_email": "emma@northwind.example",
+   "due_date": "2026-11-06",
+   "priority": "high",
+   "evidence": "Emma from our support team will fix the single sign-on bug this week.",
+   "confidence": 0.8
+  },
+  {
+   "title": "Send invite for next quarter's check-in",
+   "description": "",
+   "type": "next_step",
+   "owner_name": "Jonas Weber",
+   "owner_email": "jonas@northwind.example",
+   "due_date": null,
+   "priority": "low",
+   "evidence": "Yes, I'll send an invite.",
+   "confidence": 0.88
+  }
+ ]
+}

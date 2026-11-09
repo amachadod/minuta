@@ -1,0 +1,13 @@
+{
+ "id": "example-crm-renewal",
+ "title": "Northwind SaaS × Bluefin Travel: renewal call",
+ "date": "2026-11-05",
+ "folder": "Client calls",
+ "creator": {
+  "name": "Inês Duarte",
+  "email": "ines@northwind.example"
+ },
+ "attendees": "Inês Duarte <ines@northwind.example>, Tom Okoro <tom@bluefintravel.example>, Lucía Ferrer <lucia@bluefintravel.example>",
+ "link": "https://notes.granola.ai/example/crm-renewal",
+ "transcript": "Inês: The renewal is on the 1st of December. You're on forty seats today.\nTom: We'd like to go down to thirty-five. Five agents moved to the sales team.\nLucía: And if we sign for two years, we'd expect something like eight percent off.\nInês: I can't promise eight percent today. Anything above five percent needs approval on our side. Let me see what's possible.\nLucía: Understood. We also need your security questionnaire updated for our audit, by the 20th.\nInês: I'll send the updated security questionnaire by the 20th of November.\nInês: And I'll send a renewal quote for thirty-five seats with one-year and two-year options by Monday.\nTom: Great, that gives us time before the end of the month."
+}
