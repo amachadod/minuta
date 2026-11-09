@@ -2,7 +2,7 @@
 
 **Minuta turns every call into tasks for the right team.**
 
-Granola records the call. Minuta works out which team it belongs to, asks Claude to pull out what was agreed using that team's playbook, and creates the tasks as issues in that team's Linear, with owners, deadlines, priority and the quote from the call that proves each one.
+Granola (a call-notes app) records the call. Minuta works out which team it belongs to, asks Claude to pull out what was agreed using that team's playbook, and creates the tasks as issues in that team's Linear (a task tracker), with owners, deadlines, priority and the quote from the call that proves each one.
 
 It works for any team that has calls and a task list: **sales, account management, marketing, customer success and internal teams**. Adding a new team takes one plain-English file.
 
