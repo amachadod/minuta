@@ -1,0 +1,13 @@
+{
+ "id": "example-crm-checkin",
+ "title": "Northwind SaaS × Tessera Dental Group: quarterly check-in",
+ "date": "2026-11-04",
+ "folder": "Customer Success",
+ "creator": {
+  "name": "Jonas Weber",
+  "email": "jonas@northwind.example"
+ },
+ "attendees": "Jonas Weber <jonas@northwind.example>, Sofia Lang <sofia@tesseradental.example>",
+ "link": "https://notes.granola.ai/example/crm-checkin",
+ "transcript": "Jonas: How's it going after the first three months?\nSofia: Mostly good. Most of the front desk team uses the saved replies now. Patients get answers the same day.\nSofia: Two problems. We're opening two new clinics in December, so twelve new people need training.\nJonas: I'll run a training session for the new clinic staff. Let's do it before the 18th of November so they're ready.\nSofia: Perfect. The second thing is reporting. I need a monthly export for the board and it only exports to PDF.\nJonas: I'll log a feature request for a CSV export and tell you what the product team says.\nSofia: Also the single sign-on sometimes logs people out.\nJonas: Emma from our support team will fix the single sign-on bug this week.\nSofia: Thanks. Same time next quarter?\nJonas: Yes, I'll send an invite."
+}
