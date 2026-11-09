@@ -11,7 +11,7 @@ import { loadExamples, mockDeps } from "./examples.js";
 const config = { ...getConfig({}), dryRun: true };
 const playbooks = loadPlaybooks(config.playbooksDir);
 
-const ORDER = ["sales-fjord", "am-casaverde", "mkt-kettle", "cs-sunpeak", "ops-atlas"];
+const ORDER = ["sales-fjord", "am-casaverde", "mkt-kettle", "cs-sunpeak", "ops-atlas", "crm-discovery", "crm-checkin", "crm-renewal"];
 const PB_ORDER = ["sales", "account-management", "marketing", "customer-success", "team-meeting"];
 const rank = (list, id) => (list.indexOf(id) + 1 || 99);
 
@@ -21,6 +21,7 @@ for (const ex of loadExamples().sort((a, b) => rank(ORDER, a.id) - rank(ORDER, b
   const clean = validateExtraction(ex.output);
   deps.extract = async () => clean;
   const r = await runPipeline(ex.note, { config, playbooks, deps });
+  const c = await runPipeline(ex.note, { config: { ...config, output: "crm" }, playbooks, deps });
   const note = normalizeNote(ex.note);
   examples.push({
     id: ex.id,
@@ -35,6 +36,7 @@ for (const ex of loadExamples().sort((a, b) => rank(ORDER, a.id) - rank(ORDER, b
     routeReason: r.routeReason,
     summary: r.summary,
     tasks: clean.tasks.map((t, i) => ({ ...t, flagged: r.planned[i].flagged, assigned: r.planned[i].assigneeEmail })),
+    crm: { mode: c.mode, tasks: c.crm.tasks, followUp: c.crm.followUp },
   });
 }
 
