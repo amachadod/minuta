@@ -194,3 +194,6 @@ Alberto Machado Domínguez: advertising and PR graduate (Universidad Complutense
 ## License
 
 MIT. Granola, Claude, Linear and Zapier are trademarks of their respective owners. Minuta is an independent project and is not affiliated with them.
+
+---
+Built by Alberto Machado Domínguez · [albertomachdom@gmail.com](mailto:albertomachdom@gmail.com) · [LinkedIn](https://www.linkedin.com/in/alberto-machado-dom%C3%ADnguez-708290251/)
